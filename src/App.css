@@ -1,0 +1,181 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+.coming-soon-container {
+  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
+  background-size: cover;
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  font-family: "Helvetica Neue", sans-serif;
+  text-align: center;
+  color: #fff;
+  position: relative;
+  padding: 1rem;
+  overflow: hidden;
+}
+
+/* Fondo animado suave */
+.coming-soon-container::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 200%;
+  height: 200%;
+  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, transparent 60%),
+              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 60%);
+  animation: floatBackground 15s infinite alternate ease-in-out;
+  z-index: 0;
+}
+
+/* Movimiento del fondo */
+@keyframes floatBackground {
+  0% { transform: translate(-10%, -10%) scale(1); }
+  100% { transform: translate(10%, 10%) scale(1.1); }
+}
+
+.overlay {
+  background: rgba(0, 0, 0, 0.5);
+  padding: 2.5rem;
+  border-radius: 20px;
+  max-width: 650px;
+  width: 90%;
+  z-index: 1;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 40px 0 rgba(255,255,255,0.12);
+  backdrop-filter: blur(6px);
+  animation: fadeIn 1.2s ease-in-out, overlayShadowPulse 3s infinite alternate;
+}
+
+/* Sombra animada sutil */
+@keyframes overlayShadowPulse {
+  from {
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 40px 0 rgba(255,255,255,0.12);
+  }
+  to {
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), 0 0 60px 0 rgba(255,255,255,0.18);
+  }
+}
+
+/* Animación de entrada */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.title {
+  font-size: 3.2rem;
+  margin-bottom: 0.5rem;
+  color: #e8f8f5;
+  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
+  letter-spacing: 2px;
+  animation: titleGlow 3s ease-in-out infinite alternate;
+}
+
+/* Efecto glow sutil */
+@keyframes titleGlow {
+  from { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
+  to { text-shadow: 0 0 20px rgba(255,255,255,0.7); }
+}
+
+.subtitle {
+  font-size: 2rem;
+  margin-bottom: 1.2rem;
+  color: #f9e79f;
+  font-weight: 500;
+  animation: fadeIn 1.5s ease-in-out;
+}
+
+.message, .message2, .message3 {
+  font-size: 1.3rem;
+  line-height: 1.7;
+  margin-top: 1rem;
+  color: #fdfefe;
+  opacity: 0.9;
+  animation: fadeIn 2s ease-in-out;
+}
+
+.message2 {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  color: #f9e79f;
+  letter-spacing: 1px;
+}
+
+.message3 {
+  font-style: italic;
+  color: #e8f8f5;
+}
+
+/* Logo con animación de flotación */
+.logo {
+  background-image: url("./assets/Oaxaca.png");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  width: 560px;
+  height: 550px;
+  margin-top: -3vh;
+  z-index: 1;
+  animation: floatLogo 6s ease-in-out infinite;
+}
+
+@keyframes floatLogo {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-15px); }
+}
+
+/* --- ADAPTACIÓN PARA MÓVILES --- */
+@media (max-width: 768px) {
+  .logo {
+    width: 300px;
+    height: 280px;
+  }
+
+  .title {
+    font-size: 2.2rem;
+  }
+
+  .subtitle {
+    font-size: 1.5rem;
+  }
+
+  .message, .message2, .message3 {
+    font-size: 1.1rem;
+  }
+
+  .overlay {
+    padding: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .logo {
+    width: 220px;
+    height: 200px;
+  }
+
+  .coming-soon-container {
+    padding: 1rem;
+  }
+  .title {
+    font-size: 1.8rem;
+  }
+
+  .subtitle {
+    font-size: 1.3rem;
+  }
+
+  .message, .message2, .message3 {
+    font-size: 1rem;
+  }
+}
