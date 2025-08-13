@@ -1,5 +1,5 @@
 import React from 'react';
-import "./EnredaderaSVG.css";
+//import "./EnredaderaSVG.css";
 import enredaderaLeft from '../assets/enredadera.png';
 import enredaderaRight from '../assets/enredadera2.png';
 

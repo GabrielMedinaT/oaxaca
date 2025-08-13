@@ -22,6 +22,37 @@ html,
 body {
   overflow-x: hidden;
 }
+.coming-soon-modal {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 50vw;
+  height: 50vh;
+  background: rgba(0, 0, 0, 0.85);
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  flex-direction: column;
+  text-align: center;
+  padding: 20px;
+  cursor: pointer;
+  margin: 0;
+  margin-top: 40vh;
+}
+
+.coming-soon-modal h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+
+.coming-soon-modal p {
+  max-width: 600px;
+  font-size: 1.2rem;
+  line-height: 1.4;
+}
 
 /* Estilo general del cuerpo */
 body {
@@ -47,6 +78,45 @@ body {
   background-size: contain;
   filter: brightness(1.2) contrast(1.1);
 }
+/* marquee */
+.marquee{
+  overflow: hidden;
+  white-space: nowrap;
+  background: #b58b5f;
+  color: #fff;
+  font-size: 0.95rem;
+  padding: 8px 0;
+  border-bottom: 1px solid rgba(255,255,255,.08);
+  margin-top: 8vh;
+  position: sticky;
+}
+
+/* Animamos el contenedor, no cada span */
+.marquee__inner{
+  display: inline-flex;
+  gap: 2rem;
+  padding-left: 100%;
+  animation: marquee 16s linear infinite;
+}
+
+/* Pausar al pasar el ratón */
+.marquee:hover .marquee__inner{
+  animation-play-state: paused;
+  cursor: pointer;
+}
+
+/* Bucle sin cortes (como duplicamos el contenido, movemos la mitad) */
+@keyframes marquee{
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+
+/* (Opcional) accesibilidad: sin animación si el usuario lo prefiere */
+@media (prefers-reduced-motion: reduce){
+  .marquee__inner{ animation: none; transform: none; }
+}
+
+
 
 /* Contenedor de enlaces o datos */
 .datos {
@@ -263,6 +333,10 @@ button {
   .coming-soon-container {
     min-height: 40vh;
     background-size: 80%;
+  }
+  .lang-switch {
+    width: 60vw;
+    right: 0.5rem;
   }
 
   .datos a {

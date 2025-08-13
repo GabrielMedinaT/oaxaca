@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import "./LoginModal.css";
+//import "./LoginModal.css";
 
 export default function LoginModal({ onClose, onSuccess }) {
   const [email, setEmail] = useState("");

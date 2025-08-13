@@ -3,7 +3,7 @@ import { format, parse, startOfWeek, getDay, addHours } from "date-fns";
 import { es } from "date-fns/locale";
 import "react-big-calendar/lib/css/react-big-calendar.css";
 import { useEffect, useState } from "react";
-import "./Calendar.css";
+//import "./Calendar.css";
 import EventFormModal from "./EventFormModal";
 import ICAL from "ical.js";
 

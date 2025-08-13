@@ -15,12 +15,16 @@ import {
   Puma,
   ExperienciasCulinarias,
 } from "./components";
+// import { nav } from "framer-motion/client"; // ❌ no se usa
+import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 const SLIDE_FROM = "left";
 
 function App() {
   const { t } = useTranslation();
   const { setLang } = useLang();
+  const navigate = useNavigate();
+  const location = useLocation();
 
   const [menuOpen, setMenuOpen] = useState(false);
   const [showClose, setShowClose] = useState(false);
@@ -29,6 +33,8 @@ function App() {
   const [currentView, setCurrentView] = useState("landing");
   const [usuario, setUsuario] = useState(null);
   const [submenuOpen, setSubmenuOpen] = useState(false);
+  // Estado para modal "Próximamente"
+  const [showComingSoon, setShowComingSoon] = useState(true);
 
   useEffect(() => {
     let timer;
@@ -39,6 +45,13 @@ function App() {
     }
     return () => clearTimeout(timer);
   }, [menuOpen]);
+
+  // 🔐 NUEVO: Si se entra a /calendario sin usuario, abrir modal de login
+  useEffect(() => {
+    if (location.pathname === "/calendario" && !usuario && !showLogin) {
+      setShowLogin(true);
+    }
+  }, [location.pathname, usuario, showLogin]);
 
   const handleHamburgerClick = (e) => {
     const rect = e.currentTarget.getBoundingClientRect();
@@ -52,17 +65,16 @@ function App() {
   const handleMenuClick = (view) => {
     setMenuOpen(false);
     setSubmenuOpen(false);
-    if (view === "calendar") {
-      setShowLogin(true);
-    } else {
-      setCurrentView(view);
-    }
+    // Ya no se usa "calendar" desde el menú
+    setCurrentView(view);
   };
 
   const handleLoginSuccess = (usuario) => {
     setUsuario(usuario);
     setShowLogin(false);
-    setCurrentView("calendar");
+    // Antes: setCurrentView("calendar");
+    // Ahora calendario es una ruta: /calendario
+    navigate("/calendario");
   };
 
   const containerVariants = {
@@ -89,9 +101,9 @@ function App() {
     exit: { opacity: 0, ...exitOffset, transition: { duration: 0.25 } },
   };
 
+  // ❗️Quitamos Calendario del menú
   const menuItems = [
     { label: t("nav.home"), action: () => handleMenuClick("landing") },
-    { label: t("nav.calendar"), action: () => handleMenuClick("calendar") },
     {
       label: t("nav.stays"),
       isSubmenu: true,
@@ -122,12 +134,63 @@ function App() {
     <div className="coming-soon-container">
       {/* NAVBAR */}
       <div className="NavBar">
-        {/* Botones de idioma (estado global) */}
         <div className="lang-switch">
-          <button onClick={() => setLang("es")}>ES</button>
-          <button onClick={() => setLang("en")}>EN</button>
-          <button onClick={() => setLang("de")}>DE</button>
+          <button onClick={() => setLang("es")} aria-label="Español">
+            <svg width="24" height="16" viewBox="0 0 24 16">
+              <rect width="24" height="16" fill="#C60B1E" />
+              <rect y="4" width="24" height="8" fill="#FFC400" />
+            </svg>
+          </button>
+
+          <button onClick={() => setLang("en")} aria-label="English">
+            <svg width="24" height="16" viewBox="0 0 60 30">
+              <clipPath id="t">
+                <path d="M30,15 h30 v15 h-30 z v15 h-30 v-15 z v-15 h30 z" />
+              </clipPath>
+              <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
+              <path
+                d="M0,0 L60,30 M60,0 L0,30"
+                clipPath="url(#t)"
+                stroke="#C8102E"
+                strokeWidth="4"
+              />
+              <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
+              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
+            </svg>
+          </button>
+
+          <button onClick={() => setLang("de")} aria-label="Deutsch">
+            <svg width="24" height="16" viewBox="0 0 5 3">
+              <rect width="5" height="1" y="0" fill="#000" />
+              <rect width="5" height="1" y="1" fill="#DD0000" />
+              <rect width="5" height="1" y="2" fill="#FFCE00" />
+            </svg>
+          </button>
         </div>
+
+        {/* MODAL "PRÓXIMAMENTE" */}
+        <AnimatePresence>
+          {showComingSoon && (
+            <motion.div
+              className="coming-soon-modal"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              onClick={() => setShowComingSoon(false)}
+            >
+              <motion.h1
+                initial={{ scale: 0.8 }}
+                animate={{ scale: 1 }}
+                transition={{ duration: 0.5 }}
+              >
+                {t("nav.proximamente")}
+              </motion.h1>
+              <p> {t("nav.estamos")} </p>
+            </motion.div>
+          )}
+        </AnimatePresence>
 
         {!menuOpen && (
           <motion.div
@@ -169,6 +232,21 @@ function App() {
 
         <div className="logo-center"></div>
       </div>
+
+     {/* MARQUESINA (debajo del NavBar) */}
+{location.pathname !== "/calendario" && (
+<div className="marquee" role="status" aria-live="polite">
+  <div className="marquee__inner">
+    <span>· Reservas abiertas pronto · Síguenos para novedades.</span>
+    <span>Algo grande está a punto de ocurrir</span>
+
+    {/* Duplicados para scroll continuo */}
+    <span aria-hidden="true">· Reservas abiertas pronto · Síguenos para novedades.</span>
+    <span aria-hidden="true">Algo grande está a punto de ocurrir</span>
+  </div>
+</div>
+
+)}
 
       {/* MENÚ LATERAL */}
       <AnimatePresence>
@@ -223,78 +301,93 @@ function App() {
       {/* MODAL LOGIN */}
       {showLogin && (
         <LoginModal
-          onClose={() => setShowLogin(false)}
+          onClose={() => {
+            // 🔐 NUEVO: si cierran el modal en /calendario sin usuario => volver a inicio
+            setShowLogin(false);
+            if (location.pathname === "/calendario" && !usuario) navigate("/");
+          }}
           onSuccess={handleLoginSuccess}
         />
       )}
 
       {/* CONTENIDO PRINCIPAL */}
       <div className="Render" style={{ position: "relative", width: "100vw" }}>
-        <AnimatePresence mode="wait">
-          {currentView === "landing" && (
-            <motion.div
-              key="landing"
-              variants={transitionVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.6 }}
-              style={{ position: "absolute", width: "100vw" }}
-            >
-              <Landing />
-            </motion.div>
-          )}
+        {/* Si la URL es /calendario, renderizamos esa página y ocultamos el resto */}
+        {location.pathname === "/calendario" ? (
+          <Routes>
+            <Route
+              path="/calendario"
+              element={
+                // 🔐 NUEVO: no renderizar el calendario si no hay usuario
+                usuario ? (
+                  <motion.div
+                    key="calendar"
+                    variants={transitionVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={{ duration: 0.6 }}
+                    style={{ position: "absolute", width: "100vw" }}
+                  >
+                    <Calendar usuario={usuario} />
+                  </motion.div>
+                ) : null
+              }
+            />
+          </Routes>
+        ) : (
+          <AnimatePresence mode="wait">
+            {currentView === "landing" && (
+              <motion.div
+                key="landing"
+                variants={transitionVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.6 }}
+                style={{ position: "absolute", width: "100vw" }}
+              >
+                <Landing />
+              </motion.div>
+            )}
 
-          {currentView === "calendar" && (
-            <motion.div
-              key="calendar"
-              variants={transitionVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.6 }}
-              style={{ position: "absolute", width: "100vw" }}
-            >
-              <Calendar usuario={usuario} />
-            </motion.div>
-          )}
+            {["caracol", "quetzal", "venado", "iguana", "tortuga", "puma"].map(
+              (view) =>
+                currentView === view && (
+                  <motion.div
+                    key={view}
+                    variants={transitionVariants}
+                    initial="initial"
+                    animate="animate"
+                    exit="exit"
+                    transition={{ duration: 0.6 }}
+                    style={{ position: "absolute", width: "100vw" }}
+                  >
+                    {view === "caracol" && <Caracol />}
+                    {view === "quetzal" && <Quetzal />}
+                    {view === "venado" && <Venado />}
+                    {view === "iguana" && <Iguana />}
+                    {view === "tortuga" && <Tortuga />}
+                    {view === "puma" && <Puma />}
+                  </motion.div>
+                )
+            )}
 
-          {["caracol", "quetzal", "venado", "iguana", "tortuga", "puma"].map(
-            (view) =>
-              currentView === view && (
-                <motion.div
-                  key={view}
-                  variants={transitionVariants}
-                  initial="initial"
-                  animate="animate"
-                  exit="exit"
-                  transition={{ duration: 0.6 }}
-                  style={{ position: "absolute", width: "100vw" }}
-                >
-                  {view === "caracol" && <Caracol />}
-                  {view === "quetzal" && <Quetzal />}
-                  {view === "venado" && <Venado />}
-                  {view === "iguana" && <Iguana />}
-                  {view === "tortuga" && <Tortuga />}
-                  {view === "puma" && <Puma />}
-                </motion.div>
-              )
-          )}
-
-          {currentView === "experienciasCulinarias" && (
-            <motion.div
-              key="experienciasCulinarias"
-              variants={transitionVariants}
-              initial="initial"
-              animate="animate"
-              exit="exit"
-              transition={{ duration: 0.6 }}
-              style={{ position: "absolute", width: "100vw" }}
-            >
-              <ExperienciasCulinarias />
-            </motion.div>
-          )}
-        </AnimatePresence>
+            {currentView === "experienciasCulinarias" && (
+              <motion.div
+                key="experienciasCulinarias"
+                variants={transitionVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.6 }}
+                style={{ position: "absolute", width: "100vw" }}
+              >
+                <ExperienciasCulinarias />
+              </motion.div>
+            )}
+          </AnimatePresence>
+        )}
       </div>
 
       {/* FOOTER */}

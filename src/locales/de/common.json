@@ -7,7 +7,9 @@
     "home": "Startseite",
     "calendar": "Kalender",
     "stays": "Unterkünfte",
-    "experiences": "Erlebnisse"
+    "experiences": "Erlebnisse",
+    "proximamente": "Demnächst",
+    "estamos": "Wir bereiten etwas Großartiges für dich vor. Klicke, um fortzufahren."
   },
   "rooms": {
     "caracol": "Caracol",
@@ -34,5 +36,148 @@
     "address": "GC-200, KM-0, Agaete",
     "call": "Rufen Sie uns an unter +34 683 463 315",
     "whatsapp": "Oder kontaktieren Sie uns per WhatsApp, wenn Sie möchten"
+  },
+  "caracol": {
+    "title": "Caracol",
+    "imageAlt": "Caracol Bild {{n}}",
+    "cta": {
+      "airbnb": "Bei Airbnb buchen",
+      "booking": "Bei Booking buchen"
+    },
+    "seo": {
+      "title": "Caracol – Ganzheitlicher Rückzugsort in Finca Oaxaca",
+      "description": "Caracol ist ein intimer Rückzugsort in der Finca Oaxaca, geschaffen, um zur Ruhe zurückzufinden. Erlebe einen einzigartigen Aufenthalt umgeben von Lehm, Holz und Stille.",
+      "ogTitle": "Caracol – Rückzugsort in Finca Oaxaca",
+      "ogDescription": "Übernachte im Caracol und lass dich von der natürlichen Ruhe Agaetes umarmen. Eine ganzheitliche, diskrete und essentielle Erfahrung."
+    },
+    "sections": [
+      "Vielleicht ist es kein Zufall, dass du hier gelandet bist. Caracol ist ein organischer Zufluchtsort, gewebt aus Ruhe und Stille. Seine Form umhüllt dich, als wolle sie dich an etwas Vergessenes erinnern: Die Welt muss nicht immer eilen. Hier ist jeder Stein, jeder Schatten, jeder Duft von natürlichem Holz so gesetzt, dass er dich zur Essenz zurückführt.",
+      "Innen dringt das Licht nicht ein – es legt sich nieder. Das niedrige Bett, geborgen zwischen Lehm- und Holzstrukturen, ist mehr als ein Ort zum Schlafen: eine Einladung, loszulassen. Manchmal weiß man nicht, wie müde man ist, bis man wirklich inne hält. Und hier, zwischen dem Feinen und dem Schlichten, wird das Innehalten unausweichlich.",
+      "Oben blickt das Schlafloft in das Herz der Kuppel. Es ist nicht nur ein erhöhter Platz: eine Art intimer Tempel. Dort ruht der Körper, doch die Seele öffnet sich. Wer hinaufsteigt, fühlt. Wer fühlt, versteht, dass es Momente gibt, in denen es nichts weiter zu verstehen gibt.",
+      "Und wenn du dich umsiehst und nur das Nötige siehst, erinnerst du dich: Genau das hast du gesucht. Caracol ist kein Zimmer: Es ist eine diskrete, aber radikale Erfahrung. Es lenkt nicht ab, es verlangt nichts. Es nimmt dich einfach auf. Vielleicht, weil du – ohne es zu wissen – wusstest, dass du es brauchtest."
+    ]
+  },
+    "iguana": {
+    "title": "Iguana",
+    "imageAlt": "Iguana Ansicht {{n}}",
+    "cta": {
+      "airbnb": "Bei Airbnb buchen",
+      "booking": "Bei Booking buchen"
+    },
+    "seo": {
+      "title": "Iguana – Gemütliche Unterkunft in der Finca Oaxaca",
+      "description": "Entdecke Iguana: ein warmer Rückzugsort in der Finca Oaxaca. Räume mit Seele, handwerkliche Details – ideal für Familien, die abschalten und wieder verbinden möchten.",
+      "ogTitle": "Iguana – Unterkunft in der Finca Oaxaca",
+      "ogDescription": "Iguana ist mehr als ein Haus: eine Erfahrung von Ruhe, Verbundenheit und schlichter Schönheit in der Natur.",
+      "ogLocale": "de_DE"
+    },
+    "sections": [
+      "In Iguana beginnt alles auf der Veranda: eine schlichte Ecke mit einem Schmiedeeisenstuhl und einem Kaktus, der die Sonne grüßt. Hier spürt man die Brise, hört die leisen Stimmen des Dorfes – und der Tag beginnt ohne Eile.",
+      "Innen öffnet sich das Wohnzimmer wie eine Umarmung eines Freundes. Holz, handwerkliche Texturen und natürliches Licht machen das Alltägliche zum Zufluchtsort. Ein Raum, der zum Beisammensein einlädt – ganz ohne große Pläne.",
+      "In jeder Ecke gibt es Details, die nicht herausstechen wollen, sondern Zuhause schaffen: eine Hängelampe, ein Hut, der schon immer dort zu sein scheint, oder ein Tisch, an dem man stundenlang reden kann, während der Abend fällt.",
+      "Das Hauptschlafzimmer verbindet Ruhe und Erholung. Das Licht fällt sanft ein und alles lädt zu tiefem Schlaf ein. Ein Ort zum Auftanken – und zum Träumen.",
+      "Das Zweibettzimmer ist ideal zum Teilen. Bequem und ruhig – wie gemacht für Gespräche bis spät in die Nacht zwischen Geschwistern, Cousins oder Freunden.",
+      "Das Bad verbindet Rustikales mit Funktionalität, ohne den Charme zu verlieren. Jedes Detail ist da, um dich zuhause fühlen zu lassen – vom Holzregal bis zum gerahmten Spiegel.",
+      "Iguana ist nicht nur eine Unterkunft: es ist eine kleine Pause in der Zeit. Ideal für Familien oder Gruppen, die sich wieder verbinden, teilen und Teil von etwas Langsamerem, Menschlicherem, Echtem sein möchten."
+    ]
+  },
+   "puma": {
+    "title": "Puma",
+    "imageAlt": "Puma Bild {{n}}",
+    "cta": {
+      "airbnb": "Bei Airbnb buchen",
+      "booking": "Bei Booking buchen"
+    },
+    "seo": {
+      "title": "Puma – Unterkunft in der Finca Oaxaca",
+      "description": "Puma ist ein ruhiger, seelenvoller Ort in der Finca Oaxaca. Liebevolle Details, sanftes Licht und Ecken, die zum Verweilen einladen – perfekt, um dich mit dir und der Natur zu verbinden.",
+      "ogTitle": "Puma – Unterkunft in der Finca Oaxaca",
+      "ogDescription": "Entdecke Puma: wo die Stille spricht, die Erde umarmt und jedes Detail Seele hat. Ein Ort, der bleibt."
+    },
+    "sections": [
+      "Puma ist stille Stärke. Ein Raum für alle, die sich mit der Erde und sich selbst verbinden möchten – ohne auf Komfort oder Schönheit zu verzichten. Hier scheint jeder Gegenstand eine Geschichte zu erzählen, jede Ecke lädt zum Innehalten ein.",
+      "Seit dem ersten Morgenlicht erfüllt sanfte Energie das Haus – jene, die nicht drängt, sondern trägt. Die Architektur steht im Dialog mit der Umgebung: respektvoll, feiernd.",
+      "Die Schlafzimmer sind Tempel der Ruhe. Holz, organische Texturen und warmes Licht bieten mehr als nur einen Schlafplatz: einen Ort des Loslassens.",
+      "Die Küche ist eine Einladung: zu kochen, zu teilen, zu kosten. Manchmal brennt das Feuer auf dem Herd, manchmal in den Worten, die beim Zubereiten fließen.",
+      "Draußen konkurriert die Landschaft nicht – sie begleitet. Puma hat einen lebendigen, atmenden Garten: ein Zufluchtsort, eine Pause von der Welt. Sonnenuntergänge werden hier nicht nur betrachtet – sie werden gefühlt.",
+      "Puma ist ideal für alle, die das Ganze schätzen. Für jene, die mehr als eine Unterkunft suchen: ein Gefühl, eine Erinnerung, die bleibt, wenn du schon gegangen bist.",
+      "Zu zweit, in der Gruppe oder allein – dieses Haus passt sich dem Rhythmus seiner Gäste an. Immer mit Respekt, Intention und Seele.",
+      "Und wenn du glaubst, alles gesehen zu haben, erinnert dich etwas – ein Sonnenstrahl, ein Schatten an der Wand, eine unerwartete Brise – daran, dass Puma noch Überraschungen bereithält.",
+      "Es gibt Orte, die man erlebt. Und andere, an die sich der ganze Körper erinnert. Puma ist beides.",
+      "In Puma ist bis in den letzten Winkel alles auf Wohlbefinden gedacht. Eine Terrasse, ein Schattenplatz, eine Aussicht… alles lädt ein, ein wenig länger zu bleiben."
+    ]
+  },
+    "quetzal": {
+    "title": "Quetzal",
+    "imageAlt": "Quetzal Bild {{n}}",
+    "cta": {
+      "airbnb": "Bei Airbnb buchen",
+      "booking": "Bei Booking buchen"
+    },
+    "seo": {
+      "title": "Quetzal – Unterkunft in der Finca Oaxaca",
+      "description": "Quetzal ist ein intimer Rückzugsort in der Finca Oaxaca. Sanftes Licht, natürliche Architektur und eine Energie, die zu Einkehr und Ruhe einlädt.",
+      "ogTitle": "Quetzal – Unterkunft in der Finca Oaxaca",
+      "ogDescription": "Entdecke Quetzal: eine Pause zwischen den Welten – ein Raum, in dem die Seele atmet und Zeit zur Gegenwart wird."
+    },
+    "sections": [
+      "Quetzal ist mehr als eine Unterkunft: eine Pause zwischen den Welten. Bei deiner Ankunft betrittst du nicht nur einen physischen Raum, sondern eine Energie, die dich schon lange ruft. Hier verschmelzen Architektur und Natur, als hätten sie es gemeinsam geplant. Eine Schwelle. Und wenn du sie überschreitest, ist es kein Zufall.",
+      "Innen atmet der Raum mit dir. Jede Ecke lädt zur Einkehr ein. Es gibt Stille, aber keine Leere. Schönheit ohne Übermaß. Die Ruhe hier ist nicht nur für den Körper, sondern für alles, was du unbemerkt mit dir trägst. Als wüsste der Ort genau, was du loslassen musst.",
+      "Das Licht tritt wie eine stille Führung ein. Es legt sich auf Holz, auf Fasern, auf deine Gedanken. Die Zeit löst sich. Du erinnerst dich daran, wie es ist, ohne Forderungen und Pflichten präsent zu sein. Einfach sein. Einfach fühlen. Als wäre Quetzal kein Ort, sondern ein Seelenzustand.",
+      "Wenn du gehst, bemerkst du die Veränderung vielleicht nicht sofort. Doch innen hat sich etwas neu geordnet. Weniger Lärm. Mehr Sinn. Und eine Gewissheit: Du brauchtest diesen Atemzug. Quetzal will nicht beeindrucken – es will, dass du dich wieder wirklich bewohnst."
+    ]
+  },
+    "tortuga": {
+    "title": "Tortuga",
+    "imageAlt": "Tortuga Bild {{n}}",
+    "cta": {
+      "airbnb": "Bei Airbnb buchen",
+      "booking": "Bei Booking buchen"
+    },
+    "seo": {
+      "title": "Tortuga – Unterkunft in der Finca Oaxaca",
+      "description": "Tortuga ist ein ruhiger Rückzugsort in der Finca Oaxaca. Sanfte Texturen, natürliches Licht und Räume zum Innehalten – für dich und deine Liebsten.",
+      "ogTitle": "Tortuga – Unterkunft in der Finca Oaxaca",
+      "ogDescription": "Entdecke Tortuga: Ruhe, Verbundenheit und sanfte Schönheit in jeder Ecke. Ein Raum, in dem die Zeit dir gehört."
+    },
+    "price": {
+      "title": "Plane deinen Aufenthalt",
+      "perNight": "Preis pro Nacht",
+      "nights": "Nächte",
+      "total": "Gesamt",
+      "checkin": "Anreisedatum:",
+      "checkout": "Abreisedatum:"
+    },
+    "sections": [
+      "Tortuga ist zur Ruhe gewordener Raum. Das Hauptschlafzimmer mit natürlichem Licht und Steinboden lädt zu tiefem Schlaf ein. Hier fühlt sich Zeit anders an: langsamer, mehr deine eigene.",
+      "Das Zweibettzimmer bietet Balance – Privatsphäre und Nähe zugleich – ideal für Freunde oder Familie. Texturen, sanftes Licht und neutrale Töne begleiten die Ruhe in Harmonie.",
+      "Das Bad in Blau- und Weißtönen erinnert an das Meer. Schlicht, aber vollständig – alles da für eine erneuernde Pause. Jede Dusche wird zu einem kleinen Ritual.",
+      "Die Küche ist zum Außen orientiert und verbindet sich mit dem Leben ringsum. Das große Fenster lässt Licht und Blick herein und verbindet Innenraum und Landschaft. Hier zu kochen heißt teilen, beobachten, dabei sein.",
+      "Das Wohnzimmer von Tortuga vereint alles: Gespräch, Ruhe, Lesen, Spiel. Naturfaserlampen, ein gemütliches Sofa und offene Bücher machen diesen Ort zu einem warmen Herzen zum Teilen."
+    ]
+  },"venado": {
+    "title": "Venado",
+    "imageAlt": "Venado Bild {{n}}",
+    "cta": {
+      "airbnb": "Bei Airbnb buchen",
+      "booking": "Bei Booking buchen"
+    },
+    "seo": {
+      "title": "Venado – Gruppenraum in der Finca Oaxaca",
+      "description": "Venado ist ein Raum zum Teilen – mit Respekt und Bewusstheit. Weitläufig, ruhig und vom Wald umgeben: Er lädt zu tiefer Begegnung und echter Erholung ein.",
+      "ogTitle": "Venado – Gruppenraum in der Finca Oaxaca",
+      "ogDescription": "Entdecke Venado: Weite, lebendiges Holz, geteilte Ruhe. Ein Gruppenraum, gestaltet für Heilung in Gemeinschaft."
+    },
+    "sections": [
+      "Venado entsteht aus dem tiefen Wunsch zu teilen, ohne zu vereinnahmen. Seine Weite ist nicht nur physisch, sie ist energetisch. Hier atmet die Gruppe wie ein Körper und doch hat jede Seele ihre heilige Ecke zum Rückzug.",
+      "Holz und Stein ziehen sich wie lebendige Haut. In ihren Texturen wohnt die Erinnerung an das Wesentliche. Venado dekoriert nicht – es offenbart. Was du siehst, ist das Gerechte, das Nötige. Wie das Leben, wenn es ohne Übermaß vollständig wird.",
+      "Fenster sind Schwellen, keine Barrieren. Jeder Strahl, der eintritt, streichelt, statt zu dringen. In diesem Raum scheint die Sonne zu wissen, dass man leise sprechen muss. Ein sanzer Tanz zwischen innen und außen.",
+      "Venado beherbergt langes Lachen und bequeme Stille. Es zwingt nicht – es schlägt vor. Ein Ort, der Begegnungen trägt und zugleich Rückzug erlaubt. Denn Ganzheit beginnt damit, die eigenen Rhythmen zu achten.",
+      "Ruhe ist hier gemeinschaftlich – nicht als Pflicht, sondern als Geschenk. Wenn die Nacht fällt, wird alles weich. Gespräche werden leiser. Und der Körper übergibt sich – fast unbemerkt – der Erde.",
+      "Jeder Gegenstand hat einen Zweck. Jede Ecke eine Intention. Venado ist ein Akt bewussten Designs. Mehr als Ästhetik – Ethik. Ein Zuhause, das sanft fragt: Bist du wirklich anwesend?",
+      "Draußen ist der Wald keine Dekoration – er ist Teil des Zuhauses. Das Klingen der Zweige, die Brise, die hindurchzieht, die wechselnden Farben. Alles erinnert dich daran: Du bist Prozess, kein Produkt.",
+      "Venado lädt ein, Zeit anders zu bewohnen. Hier läuft man nicht – man geht. Man besetzt nicht – man ehrt. Wenn eine Gruppe zur Ruhe findet, heilt etwas Tiefes – auch ohne Worte.",
+      "Und wenn du gehst, bleibt Venado bei dir. Nicht als bloße Erinnerung, sondern als neue Art, dein Leben zu bewohnen. Schlichter. Zarter. Mehr du. Als hättest du beim Teilen des Raumes auch die Seele geteilt."
+    ]
   }
 }

@@ -7,7 +7,9 @@
     "home": "Home",
     "calendar": "Calendar",
     "stays": "Stays",
-    "experiences": "Experiences"
+    "experiences": "Experiences",
+    "proximamente": "Coming Soon",
+    "estamos": "We are preparing something amazing for you. Click to continue."
   },
   "rooms": {
     "caracol": "Caracol",
@@ -34,5 +36,149 @@
     "address": "GC-200, KM-0, Agaete",
     "call": "Call us at +34 683 463 315",
     "whatsapp": "Or if you prefer, contact us via WhatsApp"
+  },
+  "caracol": {
+    "title": "Caracol",
+    "imageAlt": "Caracol image {{n}}",
+    "cta": {
+      "airbnb": "Book on Airbnb",
+      "booking": "Book on Booking"
+    },
+    "seo": {
+      "title": "Caracol – Holistic retreat at Finca Oaxaca",
+      "description": "Caracol is an intimate retreat at Finca Oaxaca, designed to reconnect with calm. Discover a unique stay surrounded by clay, wood, and silence.",
+      "ogTitle": "Caracol – Retreat at Finca Oaxaca",
+      "ogDescription": "Stay at Caracol and be embraced by the natural tranquility of Agaete. A holistic, discreet, and essential experience."
+    },
+    "sections": [
+      "Perhaps it’s no coincidence you arrived here. Caracol is an organic refuge, woven from calm and silence. Its shape wraps around you, as if reminding you of something forgotten: the world doesn’t always have to hurry. Here, every stone, every shadow, every scent of natural wood is placed to guide you back to what matters.",
+      "Inside, the light doesn’t burst in—it settles. The low bed, sheltered by clay and wood textures, is more than a place to sleep: it’s an invitation to let go. Sometimes we don’t know how tired we are until we truly stop. And here, between the subtle and the simple, stopping becomes inevitable.",
+      "Above, the loft looks into the heart of the dome. It isn’t just a higher spot: it’s a kind of intimate temple. There, the body rests, but the soul opens. Whoever climbs, feels. Whoever feels, understands there are moments when nothing else needs to be understood.",
+      "And when you look around and find only what’s fair and necessary, you’ll remember that this was all you were seeking. Caracol is not a room: it’s a discreet yet radical experience. It doesn’t distract you, it doesn’t demand you. It simply receives you. If you’re here, perhaps it’s because you already knew—even if you didn’t—that you needed it."
+    ]
+  },
+    "iguana": {
+    "title": "Iguana",
+    "imageAlt": "Iguana view {{n}}",
+    "cta": {
+      "airbnb": "Book on Airbnb",
+      "booking": "Book on Booking"
+    },
+    "seo": {
+      "title": "Iguana – Cozy stay at Finca Oaxaca",
+      "description": "Discover Iguana: a warm retreat at Finca Oaxaca. Spaces with soul, handcrafted details—ideal for families seeking to disconnect and reconnect.",
+      "ogTitle": "Iguana – Stay at Finca Oaxaca",
+      "ogDescription": "Iguana is more than a house: it’s an experience of calm, connection, and simple beauty in nature.",
+      "ogLocale": "en_GB"
+    },
+    "sections": [
+      "At Iguana, everything begins on the porch: a simple corner with a wrought-iron chair and a cactus greeting the sun. Here you feel the breeze, hear the town’s soft voices, and the day begins unhurried.",
+      "Inside, the living room opens like a friend’s embrace. Wood, artisan textures, and natural light turn the everyday into refuge. It’s a space that invites being together—no big plans needed.",
+      "In every corner there are details that don’t seek attention but make a home: a hanging lamp, a hat that seems to have always been there, or a table where you can talk for hours as evening falls.",
+      "The main bedroom blends rest and calm. Light enters gently, and everything invites a deep sleep. It’s a place to recharge—and to dream.",
+      "The twin room is perfect for sharing. Comfortable and serene, it feels made for those late-night conversations between siblings, cousins, or old friends.",
+      "The bathroom combines rustic charm with function. Every detail is there to make you feel at home—from the wooden shelf to the framed mirror.",
+      "Iguana isn’t just accommodation: it’s a small pause in time—ideal for families or groups who want to reconnect, share, and feel part of something slower, more human, more real."
+    ]
+  },
+  "puma": {
+    "title": "Puma",
+    "imageAlt": "Puma image {{n}}",
+    "cta": {
+      "airbnb": "Book on Airbnb",
+      "booking": "Book on Booking"
+    },
+    "seo": {
+      "title": "Puma – Stay at Finca Oaxaca",
+      "description": "Puma is a serene, soulful space at Finca Oaxaca. Thoughtful details, soft light, and nooks that invite you to linger—perfect to reconnect with nature and yourself.",
+      "ogTitle": "Puma – Stay at Finca Oaxaca",
+      "ogDescription": "Discover Puma: where silence speaks, the earth embraces, and every detail has soul. A place that stays with you."
+    },
+    "sections": [
+      "Puma is quiet strength. A space for those who want to reconnect with the earth and themselves—without giving up comfort or beauty. Here every object tells a story; every corner invites you to pause.",
+      "From the first morning light, the house fills with a gentle energy—the kind that doesn’t push but supports. The architecture converses with the surroundings, respects them, celebrates them.",
+      "The bedrooms are temples of rest. Wood, organic textures, and warm light come together to offer not just a place to sleep, but a place to let go.",
+      "The kitchen is an invitation: to cook, to share, to taste. Sometimes the fire is on the stove; sometimes it’s in the words that flow while preparing food.",
+      "Outside, the landscape doesn’t compete—it accompanies. Puma has a living, breathable garden that becomes a refuge, a pause from the world. Sunsets here aren’t just watched—they’re felt.",
+      "Puma is ideal for those who value the full experience. For those seeking more than accommodation: a feeling, a memory that remains after you’ve left.",
+      "Whether as a couple, a group, or solo, this house adapts to your rhythm—always with respect, intention, and soul.",
+      "And when you think you’ve seen it all, something—a ray of sun, a shadow on the wall, an unexpected breeze—will remind you Puma still keeps surprises.",
+      "There are places you live. And there are others you remember with your whole body. Puma is both.",
+      "At Puma, every last corner was designed for wellbeing. A terrace, a shade, a view… everything invites you to stay a little longer."
+    ]
+  },
+    "quetzal": {
+    "title": "Quetzal",
+    "imageAlt": "Quetzal image {{n}}",
+    "cta": {
+      "airbnb": "Book on Airbnb",
+      "booking": "Book on Booking"
+    },
+    "seo": {
+      "title": "Quetzal – Stay at Finca Oaxaca",
+      "description": "Quetzal is an intimate refuge at Finca Oaxaca. Soft light, natural architecture, and an energy that invites reflection and stillness.",
+      "ogTitle": "Quetzal – Stay at Finca Oaxaca",
+      "ogDescription": "Discover Quetzal: a pause between worlds—a space where the soul breathes and time becomes presence."
+    },
+    "sections": [
+      "Quetzal is more than a stay: it’s a pause between worlds. When you arrive, you don’t just enter a physical space—you step into an energy that has been calling you. Here, architecture and nature blend as if planned together. It’s a threshold. And if you’re crossing it, it isn’t by chance.",
+      "Inside, the space breathes with you. Every corner invites retreat. There is stillness, but not emptiness. Beauty without excess. Rest here is not only for the body, but for everything you carried without noticing. As if the place knew exactly what you needed to release.",
+      "Light enters like a silent guide. It settles on the wood, the fibers, and your thoughts. Time dissolves. You remember what it’s like to be present without demands, without duties. Just being. Just feeling. As if Quetzal were not a place, but a state of the soul.",
+      "When you leave, you may not notice the change right away. But inside, something will have been reordered. Less noise. More purpose. And a certainty: you needed this breath. Quetzal doesn’t try to impress you—it wants you to remember what it means to truly inhabit yourself."
+    ]
+  },
+    "tortuga": {
+    "title": "Tortuga",
+    "imageAlt": "Tortuga image {{n}}",
+    "cta": {
+      "airbnb": "Book on Airbnb",
+      "booking": "Book on Booking"
+    },
+    "seo": {
+      "title": "Tortuga – Stay at Finca Oaxaca",
+      "description": "Tortuga is a calm retreat at Finca Oaxaca. Serene spaces, soft textures, and natural light to reconnect with yourself and loved ones.",
+      "ogTitle": "Tortuga – Stay at Finca Oaxaca",
+      "ogDescription": "Discover Tortuga: calm, connection, and gentle beauty in every corner. A space where time becomes yours."
+    },
+    "price": {
+      "title": "Plan your stay",
+      "perNight": "Price per night",
+      "nights": "Nights",
+      "total": "Total",
+      "checkin": "Check-in date:",
+      "checkout": "Check-out date:"
+    },
+    "sections": [
+      "Tortuga is calm made space. The main bedroom, with natural light and stone floor, invites deep rest. Everything here is designed so time feels different: slower, and yours.",
+      "The twin room offers balance—privacy with closeness—perfect for friends or family. Textures, soft lighting, and neutral tones accompany rest in harmony.",
+      "The bathroom, in blue and white tones, recalls the sea. Simple yet complete, it offers everything needed for a renewing pause. Every shower becomes a small ritual.",
+      "The kitchen faces outward, connecting with the life around. The large window brings in light and views, blending indoors with the landscape. Cooking here is sharing, watching, being part of it.",
+      "Tortuga’s living room gathers it all: conversation, rest, reading, play. Natural fiber lamps, a cozy sofa, and open books make this a warm heart for sharing."
+    ]
+  },
+  "venado": {
+    "title": "Venado",
+    "imageAlt": "Venado image {{n}}",
+    "cta": {
+      "airbnb": "Book on Airbnb",
+      "booking": "Book on Booking"
+    },
+    "seo": {
+      "title": "Venado – Group space at Finca Oaxaca",
+      "description": "Venado is a space to share with respect and awareness. Spacious, serene, and surrounded by forest—it invites deep connection and true rest.",
+      "ogTitle": "Venado – Group space at Finca Oaxaca",
+      "ogDescription": "Discover Venado: spaciousness, living wood, shared calm. A group space designed to heal in community."
+    },
+    "sections": [
+      "Venado is born from the deep desire to share without invading. Its spaciousness is not only physical—it’s energetic. Here, the group breathes as one, yet every soul has a sacred corner to retreat and remember who they are.",
+      "Wood and stone extend like a living skin. Within their textures lives the memory of the essential. Venado doesn’t decorate—it reveals. What you see is what’s fair, what’s needed. Like life, when it becomes full without excess.",
+      "Windows are thresholds, not barriers. Every ray that enters caresses rather than invades. In this space, the sun seems to know it must speak softly. It’s a gentle dance between inside and out.",
+      "Venado hosts long laughter and comfortable silences. It doesn’t force—it proposes. A place that holds encounters, yet allows retreat. Because wholeness begins by honoring our own rhythms.",
+      "Rest here is collective—not an imposition, but a gift. As night falls, everything softens. Conversations lower their volume. And the body, without noticing, surrenders to the earth.",
+      "Every object has a purpose. Every corner, an intention. Venado is an act of conscious design. More than aesthetics, it’s ethics. A home that gently asks: are you truly present?",
+      "Outside, the forest isn’t decor—it’s part of the home. The sound of branches, the passing breeze, the changing colors. Everything conspires to remind you that you are process, not product.",
+      "Venado invites a different time. Here, we don’t run—we walk. We don’t occupy—we honor. When a group finds calm, something deep heals, even without words.",
+      "And when you leave, Venado goes with you. Not as a memory, but as a new way to inhabit your life. Simpler. Subtler. More you. As if by sharing the space, you had also shared the soul."
+    ]
   }
 }

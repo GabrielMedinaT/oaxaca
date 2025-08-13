@@ -2,7 +2,7 @@ import React from "react";
 import { Helmet } from "react-helmet-async";
 import AliceCarousel from "react-alice-carousel";
 import "react-alice-carousel/lib/alice-carousel.css";
-import "./ExperienciasCulinarias.css";
+//import "./ExperienciasCulinarias.css";
 
 import img1 from "../assets/experiencias1.png";
 import img2 from "../assets/experiencias2.png";
