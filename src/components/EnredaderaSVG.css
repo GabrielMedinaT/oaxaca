@@ -1,0 +1,53 @@
+.enredadera-container {
+  position: fixed;
+  top: 30%;
+  bottom: 0;
+  width: 350px; /* aumentamos tamaño */
+  pointer-events: none;
+  z-index: 1;
+  overflow: hidden;
+}
+
+.enredadera-container.left {
+  left: 0;
+}
+
+.enredadera-container.right {
+  right: 0;
+}
+
+.enredadera {
+  width: 100%;
+  opacity: 0.25;
+  transform-origin: bottom center;
+  animation: crecer 5s ease-in-out forwards,
+    balancear 4s ease-in-out infinite alternate;
+}
+
+/* Animación de crecimiento inicial */
+@keyframes crecer {
+  0% {
+    transform: scaleY(0);
+  }
+  100% {
+    transform: scaleY(1);
+  }
+}
+
+/* Animación de oscilación suave */
+@keyframes balancear {
+  0% {
+    transform: scaleY(1) rotateZ(0deg);
+  }
+  50% {
+    transform: scaleY(1) rotateZ(1.5deg);
+  }
+  100% {
+    transform: scaleY(1) rotateZ(-1.5deg);
+  }
+}
+@media (max-width: 768px) {
+  .enredadera-container {
+    display: none !important;
+  }
+}

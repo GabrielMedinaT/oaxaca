@@ -1,6 +1,7 @@
+/* Reset general */
 *,
-*:after,
-*:before {
+*::after,
+*::before {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
@@ -8,174 +9,263 @@
   scroll-behavior: smooth;
   list-style: none;
 }
-.coming-soon-container {
-  background: linear-gradient(135deg, #a8edea 0%, #fed6e3 100%);
-  background-size: cover;
-  height: 100vh;
-  width: 100vw;
+
+@import "~slick-carousel/slick/slick.css";
+@import "~slick-carousel/slick/slick-theme.css";
+
+
+/* Fuente importada */
+@import url("https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600;700&display=swap");
+
+/* Evita scroll horizontal */
+html,
+body {
+  overflow-x: hidden;
+}
+
+/* Estilo general del cuerpo */
+body {
+  width: 100%;
+  font-family: "Helvetica Neue", sans-serif;
+  background: radial-gradient(circle at center, #d8b98b 0%, #b58b5f 100%);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+/* Contenedor de logo con fondo */
+.logo {
+  width: 100%;
+  min-height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  font-family: "Helvetica Neue", sans-serif;
+  justify-content: center;
   text-align: center;
-  color: #fff;
-  position: relative;
-  padding: 1rem;
-  overflow: hidden;
+  padding: 2rem;
+  background: url("./assets/Fondo3.png") center no-repeat;
+  background-size: contain;
+  filter: brightness(1.2) contrast(1.1);
 }
 
-/* Fondo animado suave */
-.coming-soon-container::before {
-  content: "";
-  position: absolute;
+/* Contenedor de enlaces o datos */
+.datos {
+  margin-top: 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.datos a {
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.datos a:hover {
+  color: #ddd5c0;
+}
+
+/* Barra de navegación superior fija */
+.NavBar {
+  width: 100%;
+  height: 60px;
+  background-color: rgba(51, 51, 51, 0.09);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
   top: 0;
   left: 0;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle at 20% 20%, rgba(255,255,255,0.15) 0%, transparent 60%),
-              radial-gradient(circle at 80% 80%, rgba(255,255,255,0.1) 0%, transparent 60%);
-  animation: floatBackground 15s infinite alternate ease-in-out;
-  z-index: 0;
+  backdrop-filter: blur(4px);
+  z-index: 1000;
 }
 
-/* Movimiento del fondo */
-@keyframes floatBackground {
-  0% { transform: translate(-10%, -10%) scale(1); }
-  100% { transform: translate(10%, 10%) scale(1.1); }
-}
-
-.overlay {
-  background: rgba(0, 0, 0, 0.5);
-  padding: 2.5rem;
-  border-radius: 20px;
-  max-width: 650px;
-  width: 90%;
-  z-index: 1;
-  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 40px 0 rgba(255,255,255,0.12);
-  backdrop-filter: blur(6px);
-  animation: fadeIn 1.2s ease-in-out, overlayShadowPulse 3s infinite alternate;
-}
-
-/* Sombra animada sutil */
-@keyframes overlayShadowPulse {
-  from {
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3), 0 0 40px 0 rgba(255,255,255,0.12);
-  }
-  to {
-    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.35), 0 0 60px 0 rgba(255,255,255,0.18);
-  }
-}
-
-/* Animación de entrada */
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-.title {
-  font-size: 3.2rem;
-  margin-bottom: 0.5rem;
-  color: #e8f8f5;
-  text-shadow: 0 0 12px rgba(255, 255, 255, 0.3);
-  letter-spacing: 2px;
-  animation: titleGlow 3s ease-in-out infinite alternate;
-}
-
-/* Efecto glow sutil */
-@keyframes titleGlow {
-  from { text-shadow: 0 0 10px rgba(255,255,255,0.4); }
-  to { text-shadow: 0 0 20px rgba(255,255,255,0.7); }
-}
-
-.subtitle {
-  font-size: 2rem;
-  margin-bottom: 1.2rem;
-  color: #f9e79f;
-  font-weight: 500;
-  animation: fadeIn 1.5s ease-in-out;
-}
-
-.message, .message2, .message3 {
-  font-size: 1.3rem;
-  line-height: 1.7;
-  margin-top: 1rem;
-  color: #fdfefe;
-  opacity: 0.9;
-  animation: fadeIn 2s ease-in-out;
-}
-
-.message2 {
-  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-  color: #f9e79f;
-  letter-spacing: 1px;
-}
-
-.message3 {
-  font-style: italic;
-  color: #e8f8f5;
-}
-
-/* Logo con animación de flotación */
-.logo {
-  background-image: url("./assets/Oaxaca.png");
-  background-size: cover;
+/* Logo centrado en la navbar */
+.logo-center {
+  background-image: url("./assets/logoPluma3.png");
+  background-size: contain;
   background-repeat: no-repeat;
   background-position: center;
-  width: 560px;
-  height: 550px;
-  margin-top: -3vh;
-  z-index: 1;
-  animation: floatLogo 6s ease-in-out infinite;
+  width: 150px;
+  height: 50px;
+  margin: 0 auto;
+  cursor: pointer;
+  transition: transform 0.3s ease;
 }
 
-@keyframes floatLogo {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-15px); }
+/* Botón hamburguesa */
+.hamburger {
+  position: absolute;
+  left: 2rem;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  height: 18px;
+  width: 24px;
 }
 
-/* --- ADAPTACIÓN PARA MÓVILES --- */
+/* Estilos de las líneas del botón hamburguesa */
+.hamburger span {
+  display: block;
+  height: 2px;
+  width: 100%;
+  background: white;
+  border-radius: 2px;
+  transition: 0.9s;
+  z-index: 1001;
+}
+
+/* Menú lateral */
+.side-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 440px;
+  background-color: rgba(51, 51, 51, 0.109);
+  backdrop-filter: blur(6px);
+  display: flex;
+  flex-direction: column;
+  padding: 2rem 1rem;
+  z-index: 1000;
+  transition: all 1.3s ease;
+}
+
+/* Lista de navegación lateral */
+.side-menu ul {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-top: 2rem;
+}
+
+.side-menu ul li a {
+  color: white;
+  font-size: 1.2rem;
+  transition: color 0.9s ease;
+}
+
+.side-menu ul li a:hover {
+  color: #ddd5c0;
+}
+
+/* Botón cerrar del menú lateral */
+.close-btn {
+  position: absolute;
+  left: 25rem;
+  font-size: 1.5rem;
+  color: white;
+  cursor: pointer;
+  z-index: 1100;
+  opacity: 0;
+  pointer-events: none;
+  animation: fadeIn 0.5s forwards ease;
+  animation-delay: 2.3s;
+  transition: transform 0.9s ease;
+}
+
+.close-btn:hover {
+  transform: scale(1.1) rotate(90deg);
+}
+
+/* Botones generales */
+button {
+  background-color: transparent;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+/* Contenedor render principal */
+.Render {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin-top: 60px;
+}
+
+/* Submenú desplegable de Estancias */
+.submenu {
+  
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+/* Footer */
+.footer {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  padding: 1rem 0;
+  text-align: center;
+  color: white;
+  background-color: rgba(51, 51, 51, 0.15);
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1rem;
+  backdrop-filter: blur(4px);
+  z-index: 999;
+}
+.botonE{
+  
+  color: white;
+  border: none;
+  padding: 0.3rem 5.5rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+  font-family: "Cormorant Garamond", serif;
+  font-weight: 500;
+  font-size: 1.2rem;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+.lang-switch {
+  position: fixed;
+  width: 20vw;
+  right: 1rem;
+  padding: 0.5rem;
+  border-radius: 0.5rem;
+  z-index: 1000;
+}
+
+/* Animación de aparición */
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+    pointer-events: auto;
+  }
+}
+
+/* Responsividad para tablets */
 @media (max-width: 768px) {
-  .logo {
-    width: 300px;
-    height: 280px;
+  .coming-soon-container {
+    min-height: 50vh;
+    background-size: 90%;
   }
 
-  .title {
-    font-size: 2.2rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
-  }
-
-  .message, .message2, .message3 {
-    font-size: 1.1rem;
-  }
-
-  .overlay {
-    padding: 1.5rem;
+  .datos a {
+    font-size: 0.9rem;
   }
 }
 
+/* Responsividad para móviles */
 @media (max-width: 480px) {
-  .logo {
-    width: 220px;
-    height: 200px;
-  }
-
   .coming-soon-container {
-    padding: 1rem;
-  }
-  .title {
-    font-size: 1.8rem;
+    min-height: 40vh;
+    background-size: 80%;
   }
 
-  .subtitle {
-    font-size: 1.3rem;
-  }
-
-  .message, .message2, .message3 {
-    font-size: 1rem;
+  .datos a {
+    font-size: 0.85rem;
   }
 }

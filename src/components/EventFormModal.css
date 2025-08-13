@@ -1,0 +1,157 @@
+:root {
+  --color-principal: #a87f54; /* Naranja suave */
+  --color-principal-hover: #996f47;
+  --color-secundario: #bdab6f; /* Amarillo suave */
+  --color-input-bg: #2a2a2a;
+  --color-texto: #fff;
+}
+
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+
+.modal-backdrop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(4px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background-color: #1e1e1e;
+  color: var(--color-texto);
+  padding: 2rem;
+  border-radius: 12px;
+  width: 90%;
+  max-width: 500px;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.4);
+  animation: fadeIn 0.3s ease-in-out;
+  overflow: visible;
+}
+
+.modal-content h2 {
+  margin-top: 0;
+  margin-bottom: 1rem;
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.modal-content label {
+  display: flex;
+  flex-direction: column;
+  font-size: 0.95rem;
+}
+
+.modal-content input,
+.modal-content textarea,
+.modal-content select {
+  padding: 0.5rem;
+  border-radius: 6px;
+  border: none;
+  margin-top: 0.3rem;
+  background-color: var(--color-input-bg);
+  color: var(--color-texto);
+  width: 100%;
+}
+
+.modal-content input:focus,
+.modal-content textarea:focus,
+.modal-content select:focus {
+  outline: 2px solid var(--color-principal);
+}
+
+/* Flecha personalizada para select */
+.modal-content select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=US-ASCII,%3Csvg xmlns='http://www.w3.org/2000/svg' width='10' height='7' viewBox='0 0 10 7'%3E%3Cpath fill='%23ffffff' d='M0 0l5 7 5-7z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 0.7rem center;
+  background-size: 0.65rem;
+  padding-right: 2rem;
+  cursor: pointer;
+  z-index: 1001;
+}
+
+/* Para asegurar que el desplegable no se oculta */
+.modal-content select option {
+  background-color: var(--color-input-bg);
+  color: var(--color-texto);
+}
+
+/* Botones */
+.modal-content .buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1.5rem;
+}
+
+.modal-content button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+}
+
+.modal-content button[type="submit"] {
+  background-color: var(--color-principal);
+  color: white;
+}
+
+.modal-content button[type="submit"]:hover {
+  background-color: var(--color-principal-hover);
+}
+
+.modal-content button[type="button"] {
+  background-color: #555;
+  color: white;
+}
+
+.modal-content button[type="button"]:hover {
+  background-color: #444;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-15px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (max-width: 480px) {
+  .modal-content .buttons {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .modal-content button {
+    font-size: 1rem;
+    padding: 0.4rem 0.8rem;
+  }
+}

@@ -1,0 +1,38 @@
+{
+  "app": {
+    "title": "Oaxaca",
+    "subtitle": "A warm and holistic stay"
+  },
+  "nav": {
+    "home": "Home",
+    "calendar": "Calendar",
+    "stays": "Stays",
+    "experiences": "Experiences"
+  },
+  "rooms": {
+    "caracol": "Caracol",
+    "quetzal": "Quetzal",
+    "venado": "Deer",
+    "iguana": "Iguana",
+    "tortuga": "Turtle",
+    "puma": "Puma"
+  },
+  "actions": {
+    "close": "Close"
+  },
+  "footer": {
+    "rights": "© 2024 Oaxaca. All rights reserved.",
+    "createdBy": "Created by Kaboom"
+  },
+  "landing": {
+    "meta": {
+      "title": "Finca Oaxaca – Natural retreat in Agaete",
+      "description": "Discover Finca Oaxaca: nature, rest and connection in Agaete. Contact us by phone or WhatsApp to book your experience.",
+      "ogTitle": "Finca Oaxaca – Agaete",
+      "ogDescription": "Escape to Finca Oaxaca. Live a unique experience between mountains and sea. Book now in Agaete, Gran Canaria."
+    },
+    "address": "GC-200, KM-0, Agaete",
+    "call": "Call us at +34 683 463 315",
+    "whatsapp": "Or if you prefer, contact us via WhatsApp"
+  }
+}
