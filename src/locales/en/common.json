@@ -9,7 +9,8 @@
     "stays": "Stays",
     "experiences": "Experiences",
     "proximamente": "Coming Soon",
-    "estamos": "We are preparing something amazing for you. Click to continue."
+    "estamos": "We are preparing something amazing for you. Click to continue.",
+    "reviews": "Reviews"
   },
   "rooms": {
     "caracol": "Caracol",
@@ -180,5 +181,52 @@
       "Venado invites a different time. Here, we don’t run—we walk. We don’t occupy—we honor. When a group finds calm, something deep heals, even without words.",
       "And when you leave, Venado goes with you. Not as a memory, but as a new way to inhabit your life. Simpler. Subtler. More you. As if by sharing the space, you had also shared the soul."
     ]
+  },
+    "marquee":{
+    "reservas": "Live a unique experience at Finca Oaxaca.",
+    "grande": "Something big is coming"
+  },
+    "common": {
+    "close": "Close",
+    "cancel": "Cancel",
+    "send": "Send review",
+    "sending": "Sending…"
+  },
+  "reviews": {
+    "title": "Reviews",
+    "ctaOpen": "Leave your review",
+    "loading": "Loading reviews…",
+    "empty": "No reviews published yet.",
+    "guest": "Guest",
+    "aria": { "rating": "Rating {{rating}} out of 5" },
+    "photoAlt": "Photo provided by the user",
+    "lightboxAlt": "Full-size image",
+    "modal": { "title": "Leave your review" },
+    "form": {
+      "name": "Name",
+      "namePh": "Your name",
+      "email": "Email",
+      "emailPh": "you@example.com",
+      "comment": "Comment",
+      "commentPh": "Tell us about your experience…",
+      "rating": "Rating",
+      "stars": "{{count}} ★",
+      "imageOpt": "Image (optional)",
+      "upload": "Upload image",
+      "uploading": "Uploading…",
+      "imageTitle": "Upload an image to attach to your review",
+      "previewAlt": "Preview",
+      "imageHint": "Formats: JPEG/PNG/WebP. Max size: 5MB.",
+      "disclaimer": "After submitting, you'll receive an email to confirm. Only one review per email."
+    },
+    "toast": {
+      "loadError": "Couldn't load reviews.",
+      "imageOk": "Image uploaded successfully.",
+      "imageErr": "Error uploading image (JPEG/PNG/WebP ≤5MB).",
+      "formRequired": "Please fill in name, email and comment.",
+      "sentCheckEmail": "Done! Check your email to confirm.",
+      "duplicate": "A review already exists for this listing with that email.",
+      "submitErr": "Could not submit. Only one review per email is allowed."
+    }
   }
 }

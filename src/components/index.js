@@ -11,3 +11,5 @@ export { default as EnredaderaSVG } from "./EnredaderaSVG";
 export { default as LoginModal } from "./LoginModal";
 export { default as Puma } from "./Puma";
 export { default as ExperienciasCulinarias } from "./ExperienciasCulinarias";
+export { default as Blog } from "./Blog";
+export { default as Reviews } from "./Reviews";

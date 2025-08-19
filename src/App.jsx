@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useLang } from "./CambioIdioma";
+
 import "./App.css";
 import {
   Calendar,
@@ -14,8 +15,9 @@ import {
   Tortuga,
   Puma,
   ExperienciasCulinarias,
+  Blog,
+  Reviews,
 } from "./components";
-// import { nav } from "framer-motion/client"; // ❌ no se usa
 import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 const SLIDE_FROM = "left";
@@ -25,7 +27,6 @@ function App() {
   const { setLang } = useLang();
   const navigate = useNavigate();
   const location = useLocation();
-
   const [menuOpen, setMenuOpen] = useState(false);
   const [showClose, setShowClose] = useState(false);
   const [ripple, setRipple] = useState({ x: 0, y: 0, show: false });
@@ -33,7 +34,6 @@ function App() {
   const [currentView, setCurrentView] = useState("landing");
   const [usuario, setUsuario] = useState(null);
   const [submenuOpen, setSubmenuOpen] = useState(false);
-  // Estado para modal "Próximamente"
   const [showComingSoon, setShowComingSoon] = useState(true);
 
   useEffect(() => {
@@ -46,7 +46,6 @@ function App() {
     return () => clearTimeout(timer);
   }, [menuOpen]);
 
-  // 🔐 NUEVO: Si se entra a /calendario sin usuario, abrir modal de login
   useEffect(() => {
     if (location.pathname === "/calendario" && !usuario && !showLogin) {
       setShowLogin(true);
@@ -65,15 +64,12 @@ function App() {
   const handleMenuClick = (view) => {
     setMenuOpen(false);
     setSubmenuOpen(false);
-    // Ya no se usa "calendar" desde el menú
     setCurrentView(view);
   };
 
   const handleLoginSuccess = (usuario) => {
     setUsuario(usuario);
     setShowLogin(false);
-    // Antes: setCurrentView("calendar");
-    // Ahora calendario es una ruta: /calendario
     navigate("/calendario");
   };
 
@@ -101,7 +97,7 @@ function App() {
     exit: { opacity: 0, ...exitOffset, transition: { duration: 0.25 } },
   };
 
-  // ❗️Quitamos Calendario del menú
+
   const menuItems = [
     { label: t("nav.home"), action: () => handleMenuClick("landing") },
     {
@@ -112,6 +108,40 @@ function App() {
     {
       label: t("nav.experiences"),
       action: () => handleMenuClick("experienciasCulinarias"),
+    },
+    {
+      label: "Blog",
+      action: () => handleMenuClick("blog"),
+    },
+    {
+      label: t("nav.reviews"),
+      action: () => handleMenuClick("Reviews"),
+    },
+   
+    {
+      label: (
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          viewBox="0 0 512 512"
+          width="48"
+          height="48"
+          aria-label="Instagram"
+        >
+          <defs>
+            <linearGradient id="ig" x1="0" y1="1" x2="1" y2="0">
+              <stop offset="0%" stopColor="#f58529" />
+              <stop offset="25%" stopColor="#feda77" />
+              <stop offset="50%" stopColor="#dd2a7b" />
+              <stop offset="75%" stopColor="#8134af" />
+              <stop offset="100%" stopColor="#515bd4" />
+            </linearGradient>
+          </defs>
+          <rect x="32" y="32" width="448" height="448" rx="96" ry="96" fill="url(#ig)" />
+          <path fill="#fff" d="M256 164c-50.7 0-92 41.3-92 92s41.3 92 92 92 92-41.3 92-92-41.3-92-92-92zm0 148a56 56 0 1 1 0-112 56 56 0 0 1 0 112zm116-154a22 22 0 1 1 0-44 22 22 0 0 1 0 44z" />
+          <path fill="#fff" d="M352 64H160c-52.9 0-96 43.1-96 96v192c0 52.9 43.1 96 96 96h192c52.9 0 96-43.1 96-96V160c0-52.9-43.1-96-96-96zm64 288c0 35.3-28.7 64-64 64H160c-35.3 0-64-28.7-64-64V160c0-35.3 28.7-64 64-64h192c35.3 0 64 28.7 64 64v192z" />
+        </svg>
+      ),
+      href: "https://www.instagram.com/finca_oaxaca/",
     },
   ];
 
@@ -132,123 +162,129 @@ function App() {
 
   return (
     <div className="coming-soon-container">
-      {/* NAVBAR */}
-      <div className="NavBar">
-        <div className="lang-switch">
-          <button onClick={() => setLang("es")} aria-label="Español">
-            <svg width="24" height="16" viewBox="0 0 24 16">
-              <rect width="24" height="16" fill="#C60B1E" />
-              <rect y="4" width="24" height="8" fill="#FFC400" />
-            </svg>
-          </button>
+      {/* HEADER STICKY: NavBar + Marquee */}
+      <header
+        className="HeaderSticky"
+        style={{ position: "sticky", top: 0, zIndex: 1000 }}
+      >
+        {/* NAVBAR */}
+        <div className="NavBar">
+          <div className="lang-switch">
+            <button onClick={() => setLang("es")} aria-label="Español">
+              <svg width="24" height="16" viewBox="0 0 24 16">
+                <rect width="24" height="16" fill="#C60B1E" />
+                <rect y="4" width="24" height="8" fill="#FFC400" />
+              </svg>
+            </button>
 
-          <button onClick={() => setLang("en")} aria-label="English">
-            <svg width="24" height="16" viewBox="0 0 60 30">
-              <clipPath id="t">
-                <path d="M30,15 h30 v15 h-30 z v15 h-30 v-15 z v-15 h30 z" />
-              </clipPath>
-              <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
-              <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
-              <path
-                d="M0,0 L60,30 M60,0 L0,30"
-                clipPath="url(#t)"
-                stroke="#C8102E"
-                strokeWidth="4"
-              />
-              <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
-              <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
-            </svg>
-          </button>
+            <button onClick={() => setLang("en")} aria-label="English">
+              <svg width="24" height="16" viewBox="0 0 60 30">
+                <clipPath id="t">
+                  <path d="M30,15 h30 v15 h-30 z v15 h-30 v-15 z v-15 h30 z" />
+                </clipPath>
+                <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
+                <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
+                <path
+                  d="M0,0 L60,30 M60,0 L0,30"
+                  clipPath="url(#t)"
+                  stroke="#C8102E"
+                  strokeWidth="4"
+                />
+                <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
+                <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
+              </svg>
+            </button>
 
-          <button onClick={() => setLang("de")} aria-label="Deutsch">
-            <svg width="24" height="16" viewBox="0 0 5 3">
-              <rect width="5" height="1" y="0" fill="#000" />
-              <rect width="5" height="1" y="1" fill="#DD0000" />
-              <rect width="5" height="1" y="2" fill="#FFCE00" />
-            </svg>
-          </button>
-        </div>
+            <button onClick={() => setLang("de")} aria-label="Deutsch">
+              <svg width="24" height="16" viewBox="0 0 5 3">
+                <rect width="5" height="1" y="0" fill="#000" />
+                <rect width="5" height="1" y="1" fill="#DD0000" />
+                <rect width="5" height="1" y="2" fill="#FFCE00" />
+              </svg>
+            </button>
+          </div>
 
-        {/* MODAL "PRÓXIMAMENTE" */}
-        <AnimatePresence>
-          {showComingSoon && (
+          {/* MODAL "PRÓXIMAMENTE" */}
+          <AnimatePresence>
+            {showComingSoon && (
+              <motion.div
+                className="coming-soon-modal"
+                initial={{ opacity: 0 }}
+                animate={{ opacity: 1 }}
+                exit={{ opacity: 0 }}
+                transition={{ duration: 0.5 }}
+                onClick={() => setShowComingSoon(false)}
+              >
+                <motion.h1
+                  initial={{ scale: 0.8 }}
+                  animate={{ scale: 1 }}
+                  transition={{ duration: 0.5 }}
+                >
+                  {t("nav.proximamente")}
+                </motion.h1>
+                <p> {t("nav.estamos")} </p>
+              </motion.div>
+            )}
+          </AnimatePresence>
+
+          {!menuOpen && (
             <motion.div
-              className="coming-soon-modal"
+              key="hamburger"
+              className="hamburger"
+              onClick={handleHamburgerClick}
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
-              transition={{ duration: 0.5 }}
-              onClick={() => setShowComingSoon(false)}
+              transition={{ duration: 0.4 }}
             >
-              <motion.h1
-                initial={{ scale: 0.8 }}
-                animate={{ scale: 1 }}
-                transition={{ duration: 0.5 }}
-              >
-                {t("nav.proximamente")}
-              </motion.h1>
-              <p> {t("nav.estamos")} </p>
+              {ripple.show && (
+                <span
+                  className="ripple"
+                  style={{ top: ripple.y, left: ripple.x }}
+                />
+              )}
+              <span></span>
+              <span></span>
+              <span></span>
             </motion.div>
           )}
-        </AnimatePresence>
 
-        {!menuOpen && (
-          <motion.div
-            key="hamburger"
-            className="hamburger"
-            onClick={handleHamburgerClick}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-          >
-            {ripple.show && (
-              <span
-                className="ripple"
-                style={{ top: ripple.y, left: ripple.x }}
-              />
-            )}
-            <span></span>
-            <span></span>
-            <span></span>
-          </motion.div>
-        )}
+          {menuOpen && showClose && (
+            <motion.div
+              key="close"
+              className="close-btn"
+              onClick={() => setMenuOpen(false)}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.4 }}
+              aria-label={t("actions.close")}
+              role="button"
+            >
+              ✕
+            </motion.div>
+          )}
 
-        {menuOpen && showClose && (
-          <motion.div
-            key="close"
-            className="close-btn"
-            onClick={() => setMenuOpen(false)}
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.4 }}
-            aria-label={t("actions.close")}
-            role="button"
-          >
-            ✕
-          </motion.div>
-        )}
+          <div className="logo-center"></div>
+        </div>
 
-        <div className="logo-center"></div>
-      </div>
+        {/* MARQUESINA (debajo del NavBar) */}
+        {location.pathname !== "/calendario" && (
+          <div
+            className="marquee"
+            role="status"
+            aria-live="polite"
+            style={{ marginTop: 0 }} // override por si en App.css sigue el 8vh
+            >
+            <div className="marquee__inner">
+              <span>{t("marquee.reservas")}</span>
+              <span>{t("marquee.grande")}</span>
+            </div>
+            </div>
+          )}
+          </header>
 
-     {/* MARQUESINA (debajo del NavBar) */}
-{location.pathname !== "/calendario" && (
-<div className="marquee" role="status" aria-live="polite">
-  <div className="marquee__inner">
-    <span>· Reservas abiertas pronto · Síguenos para novedades.</span>
-    <span>Algo grande está a punto de ocurrir</span>
-
-    {/* Duplicados para scroll continuo */}
-    <span aria-hidden="true">· Reservas abiertas pronto · Síguenos para novedades.</span>
-    <span aria-hidden="true">Algo grande está a punto de ocurrir</span>
-  </div>
-</div>
-
-)}
-
-      {/* MENÚ LATERAL */}
+          {/* MENÚ LATERAL */}
       <AnimatePresence>
         {menuOpen && (
           <motion.aside
@@ -264,9 +300,21 @@ function App() {
               animate="visible"
               exit="exit"
             >
-              {menuItems.map((item) => (
-                <motion.li key={item.label} variants={itemVariants}>
-                  <button onClick={item.action}>{item.label}</button>
+              {menuItems.map((item, idx) => (
+                <motion.li key={idx} variants={itemVariants}>
+                  {item.href ? (
+                    <a
+                      href={item.href}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      onClick={() => setMenuOpen(false)}
+                      className="menu-link"
+                    >
+                      {item.label}
+                    </a>
+                  ) : (
+                    <button onClick={item.action}>{item.label}</button>
+                  )}
 
                   <AnimatePresence>
                     {item.isSubmenu && submenuOpen && (
@@ -302,7 +350,6 @@ function App() {
       {showLogin && (
         <LoginModal
           onClose={() => {
-            // 🔐 NUEVO: si cierran el modal en /calendario sin usuario => volver a inicio
             setShowLogin(false);
             if (location.pathname === "/calendario" && !usuario) navigate("/");
           }}
@@ -312,13 +359,11 @@ function App() {
 
       {/* CONTENIDO PRINCIPAL */}
       <div className="Render" style={{ position: "relative", width: "100vw" }}>
-        {/* Si la URL es /calendario, renderizamos esa página y ocultamos el resto */}
         {location.pathname === "/calendario" ? (
           <Routes>
             <Route
               path="/calendario"
               element={
-                // 🔐 NUEVO: no renderizar el calendario si no hay usuario
                 usuario ? (
                   <motion.div
                     key="calendar"
@@ -384,6 +429,33 @@ function App() {
                 style={{ position: "absolute", width: "100vw" }}
               >
                 <ExperienciasCulinarias />
+              </motion.div>
+            )}
+
+            {currentView === "blog" && (
+              <motion.div
+                key="blog"
+                variants={transitionVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.6 }}
+                style={{ position: "absolute", width: "100vw" }}
+              >
+                <Blog />
+              </motion.div>
+            )}
+            {currentView === "Reviews" && (
+              <motion.div
+                key="reviews"
+                variants={transitionVariants}
+                initial="initial"
+                animate="animate"
+                exit="exit"
+                transition={{ duration: 0.6 }}
+                style={{ position: "absolute", width: "100vw" }}
+              >
+                <Reviews />
               </motion.div>
             )}
           </AnimatePresence>

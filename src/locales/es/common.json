@@ -9,7 +9,8 @@
     "stays": "Estancias",
     "experiences": "Experiencias",
     "proximamente": "Próximamente",
-    "estamos": "Estamos preparando algo increíble para ti. Haz clic para continuar."
+    "estamos": "Estamos preparando algo increíble para ti. Haz clic para continuar.",
+    "reviews": "Reseñas"
   },
   "rooms": {
     "caracol": "Caracol",
@@ -181,6 +182,53 @@
       "Venado invita a habitar el tiempo de otra manera. Aquí no se corre, se camina. No se ocupa, se honra. Porque cuando un grupo se encuentra en calma, algo profundo se sana, incluso sin decir palabra.",
       "Y cuando te vayas, Venado seguirá contigo. No como un recuerdo, sino como una nueva manera de habitar tu vida. Más simple. Más sutil. Más tú. Como si al compartir el espacio, también hubieras compartido el alma."
     ]
+  },
+  "marquee":{
+    "reservas": "Vive una experiencia única en Finca Oaxaca.",
+    "grande": "Algo grande está por llegar"
+  },
+    "common": {
+    "close": "Cerrar",
+    "cancel": "Cancelar",
+    "send": "Enviar reseña",
+    "sending": "Enviando…"
+  },
+  "reviews": {
+    "title": "Reseñas",
+    "ctaOpen": "Danos tu reseña",
+    "loading": "Cargando reseñas…",
+    "empty": "Aún no hay reseñas publicadas.",
+    "guest": "Invitado",
+    "aria": { "rating": "Valoración {{rating}} de 5" },
+    "photoAlt": "Foto aportada por el usuario",
+    "lightboxAlt": "Imagen a tamaño completo",
+    "modal": { "title": "Deja tu reseña" },
+    "form": {
+      "name": "Nombre",
+      "namePh": "Tu nombre",
+      "email": "Correo",
+      "emailPh": "tucorreo@ejemplo.com",
+      "comment": "Comentario",
+      "commentPh": "Cuéntanos tu experiencia…",
+      "rating": "Valoración",
+      "stars": "{{count}} ★",
+      "imageOpt": "Imagen (opcional)",
+      "upload": "Subir imagen",
+      "uploading": "Subiendo…",
+      "imageTitle": "Subir imagen para adjuntarla a tu reseña",
+      "previewAlt": "Vista previa",
+      "imageHint": "Formato: JPEG/PNG/WebP. Tamaño máx: 5MB.",
+      "disclaimer": "Al enviar, te llegará un email para confirmar. Solo se acepta una reseña por correo."
+    },
+    "toast": {
+      "loadError": "No se pudieron cargar las reseñas.",
+      "imageOk": "Imagen subida correctamente.",
+      "imageErr": "Error subiendo la imagen (JPEG/PNG/WebP ≤5MB).",
+      "formRequired": "Completa nombre, correo y comentario.",
+      "sentCheckEmail": "¡Hecho! Revisa tu correo para confirmar.",
+      "duplicate": "Ya existe una reseña para este anuncio con ese email.",
+      "submitErr": "No se pudo enviar. Solo se permite una reseña por correo."
+    }
   }
 }
 

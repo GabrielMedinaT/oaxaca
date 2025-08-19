@@ -9,7 +9,8 @@
     "stays": "Unterkünfte",
     "experiences": "Erlebnisse",
     "proximamente": "Demnächst",
-    "estamos": "Wir bereiten etwas Großartiges für dich vor. Klicke, um fortzufahren."
+    "estamos": "Wir bereiten etwas Großartiges für dich vor. Klicke, um fortzufahren.",
+    "reviews": "Bewertungen"
   },
   "rooms": {
     "caracol": "Caracol",
@@ -179,5 +180,53 @@
       "Venado lädt ein, Zeit anders zu bewohnen. Hier läuft man nicht – man geht. Man besetzt nicht – man ehrt. Wenn eine Gruppe zur Ruhe findet, heilt etwas Tiefes – auch ohne Worte.",
       "Und wenn du gehst, bleibt Venado bei dir. Nicht als bloße Erinnerung, sondern als neue Art, dein Leben zu bewohnen. Schlichter. Zarter. Mehr du. Als hättest du beim Teilen des Raumes auch die Seele geteilt."
     ]
+  },
+  "marquee": {
+    "reservas": "Erlebe ein einzigartiges Erlebnis in der Finca Oaxaca.",
+    "grande": "Etwas Großes steht bevor"
+  },
+  "common": {
+    "close": "Schließen",
+    "cancel": "Abbrechen",
+    "send": "Bewertung senden",
+    "sending": "Senden…"
+  },
+
+  "reviews": {
+    "title": "Bewertungen",
+    "ctaOpen": "Gib uns deine Bewertung",
+    "loading": "Bewertungen werden geladen…",
+    "empty": "Es sind noch keine Bewertungen veröffentlicht.",
+    "guest": "Gast",
+    "aria": { "rating": "Bewertung {{rating}} von 5" },
+    "photoAlt": "Vom Nutzer bereitgestelltes Foto",
+    "lightboxAlt": "Bild in voller Größe",
+    "modal": { "title": "Hinterlasse deine Bewertung" },
+    "form": {
+      "name": "Name",
+      "namePh": "Dein Name",
+      "email": "E-Mail",
+      "emailPh": "du@beispiel.de",
+      "comment": "Kommentar",
+      "commentPh": "Erzähle uns von deiner Erfahrung…",
+      "rating": "Bewertung",
+      "stars": "{{count}} ★",
+      "imageOpt": "Bild (optional)",
+      "upload": "Bild hochladen",
+      "uploading": "Wird hochgeladen…",
+      "imageTitle": "Bild für deine Bewertung hochladen",
+      "previewAlt": "Vorschau",
+      "imageHint": "Formate: JPEG/PNG/WebP. Max. Größe: 5 MB.",
+      "disclaimer": "Nach dem Senden erhältst du eine E-Mail zur Bestätigung. Pro E-Mail ist nur eine Bewertung erlaubt."
+    },
+    "toast": {
+      "loadError": "Bewertungen konnten nicht geladen werden.",
+      "imageOk": "Bild erfolgreich hochgeladen.",
+      "imageErr": "Fehler beim Hochladen (JPEG/PNG/WebP ≤5 MB).",
+      "formRequired": "Bitte fülle Name, E-Mail und Kommentar aus.",
+      "sentCheckEmail": "Fertig! Bitte prüfe zur Bestätigung deine E-Mail.",
+      "duplicate": "Für dieses Inserat existiert bereits eine Bewertung mit dieser E-Mail.",
+      "submitErr": "Senden fehlgeschlagen. Pro E-Mail ist nur eine Bewertung erlaubt."
+    }
   }
 }

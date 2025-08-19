@@ -9,17 +9,15 @@ const handleLogin = async () => {
   try {
     const response = await fetch("/api/auth/login", {
       method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ email, contrasena }),
+      headers: { "Content-Type": "application/json", "Accept": "application/json" },
+      body: JSON.stringify({ email: email.trim(), contrasena }) // <-- en claro
     });
 
-    console.log("📨 Respuesta del servidor:", response);
-
     const textoPlano = await response.text();
-    console.log("📦 Texto plano recibido:", textoPlano);
+
 
     if (response.ok) {
-      const usuario = JSON.parse(textoPlano); // Lo parseamos manualmente después de ver el texto
+      const usuario = JSON.parse(textoPlano);
       onSuccess(usuario);
     } else {
       console.warn("⚠️ Login fallido");
@@ -30,6 +28,8 @@ const handleLogin = async () => {
     onClose();
   }
 };
+
+
 
 
   return (

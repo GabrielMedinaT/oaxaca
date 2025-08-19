@@ -1,0 +1,263 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+
+/* === Calendar Layout ===================================================== */
+.calendar-container {
+  max-width: 90vw;
+  margin: 16px auto 32px;
+  padding: 8px;
+  height: calc(100vh - 180px);
+  position: relative;
+}
+
+/* Barra superior */
+.calendar-toolbar-custom {
+  display: grid;
+  grid-template-columns: auto 1fr auto auto;
+  gap: 12px;
+  align-items: center;
+  background-color: var(--container-bg);
+  padding: 12px 16px;
+  margin-bottom: 12px;
+  border: 1px solid var(--border-color);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+}
+
+.calendar-month-label {
+  justify-self: center;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--primary-color);
+  text-transform: capitalize;
+}
+
+.calendar-toolbar-custom input[type="month"] {
+  height: 36px;
+  padding: 6px 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 6px;
+  background: #fff;
+}
+
+/* Botones */
+.reload-button,
+.crear-evento-button,
+.calendar-toolbar-custom button {
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  border: 1px solid var(--primary-color);
+  background: #fff;
+  color: var(--primary-color);
+  cursor: pointer;
+  white-space: nowrap;        /* evita salto de línea en textos largos */
+  line-height: 1;
+  transition: transform .15s ease, background-color .15s ease, box-shadow .15s ease;
+}
+
+.crear-evento-button,
+.calendar-toolbar-custom button.crear-evento-button {
+  background-color: var(--primary-color);
+  color: #fff;
+  border-color: var(--primary-color);
+}
+
+.calendar-toolbar-custom button:hover,
+.reload-button:hover,
+.crear-evento-button:hover {
+  transform: translateY(-1px);
+  background-color: var(--primary-color);
+  color: #fff;
+  box-shadow: 0 2px 8px rgba(0,0,0,.08);
+}
+
+/* === React Big Calendar ================================================== */
+.rbc-calendar {
+  background-color: var(--container-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--box-shadow);
+  border: 1px solid var(--border-color);
+  padding: 12px;
+  height: 100%;
+  color: var(--text-color);
+}
+
+/* cabeceras (Mon, Tue...) */
+.rbc-header {
+  padding: 8px 4px;
+  font-weight: 700;
+  font-size: .95rem;
+  color: #666;
+}
+
+/* número del día */
+.rbc-date-cell {
+  padding: 4px 6px;
+  font-size: .95rem;
+  color: #777;
+}
+
+/* celdas y líneas */
+.rbc-month-view,
+.rbc-time-view,
+.rbc-agenda-view { border-color: var(--border-color); }
+.rbc-month-row + .rbc-month-row { border-top: 1px solid var(--border-color); }
+.rbc-day-bg + .rbc-day-bg { border-left: 1px solid var(--border-color); }
+
+/* eventos */
+.rbc-event {
+  border-radius: 8px !important;
+  border: none !important;
+  padding: 2px 6px !important;
+  line-height: 1.2;
+  font-size: .9rem;
+  color: #fff !important;
+}
+.rbc-event-content { white-space: nowrap; overflow: hidden; text-overflow: ellipsis; }
+
+/* "+n more" más tocable en móvil */
+.rbc-show-more {
+  font-size: .85rem;
+  padding: 0 4px;
+  color: var(--primary-color);
+  font-weight: 600;
+}
+
+/* Hoy marcado suave */
+.rbc-today { background: rgba(181, 139, 95, .08); }
+
+/* === Modal del evento ==================================================== */
+.event-detail-modal-overlay {
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0,0,0,.55);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.event-detail-modal-content {
+  background: var(--container-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,.2);
+  width: min(92vw, 520px);
+  text-align: left;
+  animation: fadeInCalendar .25s ease-out;
+}
+
+.modal-title {
+  margin: 0 0 10px;
+  color: var(--primary-color);
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--border-color);
+  padding-bottom: 8px;
+}
+.modal-description { margin: 10px 0; }
+
+/* botones modal */
+.modal-close-button,
+.modal-delete-button {
+  width: 100%;
+  padding: 12px;
+  border: 0;
+  border-radius: 8px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.modal-close-button { background: var(--primary-color); color: #fff; margin-top: 8px; }
+.modal-delete-button { background: #dc3545; color: #fff; margin-top: 12px; }
+
+/* animación propia para evitar colisiones */
+@keyframes fadeInCalendar {
+  from { opacity: 0; transform: translateY(-6px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* === Responsivo ========================================================== */
+/* tablet */
+@media (max-width: 1024px) {
+  .calendar-container { height: calc(100vh - 140px); }
+  .calendar-toolbar-custom {
+    grid-template-columns: 1fr 1fr;
+    grid-auto-rows: minmax(36px, auto);
+    gap: 10px;
+  }
+  .calendar-month-label { grid-column: 1 / -1; justify-self: center; }
+  .calendar-toolbar-custom input[type="month"] { grid-column: 1 / 2; }
+  .crear-evento-button { grid-column: 2 / 3; justify-self: end; }
+  .rbc-calendar { padding: 10px; }
+  .rbc-event { font-size: .85rem; }
+}
+
+/* móvil */
+@media (max-width: 768px) {
+  .calendar-container {
+    margin: 8px;
+    height: auto;
+    min-height: 70vh;
+    position: relative;
+    top: -6vh;
+  }
+
+  /* ---- toolbar compacta en 2 columnas ---- */
+  .calendar-toolbar-custom {
+   display: flex;
+    flex-direction: row;
+    gap: 8px;
+    align-items: stretch;
+    grid-template-columns: 1fr;
+    grid-auto-rows: minmax(36px, auto);
+    margin-top: 0;
+  }
+
+  /* botones más pequeños y sin desbordar */
+  .calendar-toolbar-custom button,
+  .reload-button,
+  .crear-evento-button {
+    font-size: .9rem;
+    padding: 6px 8px;
+    min-height: 36px;
+    width: 100%;
+  }
+
+  /* título y selector de mes a ancho completo */
+  .calendar-month-label,
+  .calendar-toolbar-custom input[type="month"] {
+    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
+  }
+  .calendar-month-label { font-size: 1.05rem; }
+
+  /* “Recargar” y “Crear evento” también a ancho completo */
+  .reload-button,
+  .crear-evento-button { grid-column: 1 / -1; }
+
+  /* calendario más compacto */
+  .rbc-calendar { padding: 8px; }
+  .rbc-header { font-size: .85rem; padding: 6px 2px; }
+  .rbc-date-cell { font-size: .85rem; }
+  .rbc-event { font-size: .8rem; padding: 2px 4px !important; border-radius: 6px !important; }
+  .rbc-show-more { font-size: .8rem; }
+
+  /* reduce la altura de filas del mes */
+  .rbc-month-row { min-height: 110px; }
+}
+
+/* muy pequeño */
+@media (max-width: 420px) {
+  .rbc-month-row { min-height: 100px; }
+  .calendar-month-label { font-size: 1rem; }
+}

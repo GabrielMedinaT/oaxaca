@@ -5,7 +5,7 @@ import { useTranslation } from "react-i18next";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
 import EnredaderaSVG from "./EnredaderaSVG";
-//import "./Caracol.css";
+
 
 import caracol1 from "../assets/caracol.webp";
 import caracol2 from "../assets/caracol2.webp";

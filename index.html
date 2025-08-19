@@ -5,40 +5,36 @@
     <link rel="icon" type="image/png" href="./src/assets/logoPluma.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link rel="preload" href="/critical.css" as="style" onload="this.onload=null;this.rel='stylesheet'">
-<noscript><link rel="stylesheet" href="/critical.css"></noscript>
+    <!-- CSS crítico con preload + noscript -->
+    <link
+      rel="preload"
+      href="/critical.css"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript><link rel="stylesheet" href="/critical.css"></noscript>
 
     <title>Finca Oaxaca – Alojamiento con alma y experiencias únicas</title>
+
+    <!-- SEO base -->
     <meta
       name="description"
-      content="Sumérgete en Finca Oaxaca: descanso natural, experiencias auténticas y una conexión íntima con el entorno. Vive momentos inolvidables."
+      content="Finca Oaxaca: alojamiento con alma inspirado en México. Cocina mexicana auténtica, experiencias holísticas y místicas, y conexión con la naturaleza en Gran Canaria."
     />
     <meta name="author" content="Finca Oaxaca" />
     <meta name="robots" content="index, follow" />
     <meta name="theme-color" content="#4E3F2D" />
 
-    <!-- Preconnect a GTM (reduce latencia inicial) -->
-    <link rel="preconnect" href="https://www.googletagmanager.com" crossorigin>
-
-    <!-- Preload de la imagen LCP (logo). Sirve AVIF/WebP con fallback -->
-    <link rel="preload" as="image"
-      href="/assets/logoPluma.avif"
-      imagesrcset="/assets/logoPluma.avif type('image/avif'), /assets/logoPluma.webp type('image/webp'), /assets/logoPluma.png type('image/png')"
-      imagesizes="(max-width: 768px) 60vw, 600px">
-
-    <!-- Open Graph / Facebook -->
+    <!-- Open Graph -->
     <meta
       property="og:title"
       content="Finca Oaxaca – Alojamiento con alma y experiencias únicas"
     />
     <meta
       property="og:description"
-      content="Sumérgete en Finca Oaxaca: descanso natural, experiencias auténticas y una conexión íntima con el entorno."
+      content="Vive la esencia de México: cocina mexicana, experiencias místicas y descanso holístico en plena naturaleza."
     />
-    <meta
-      property="og:image"
-      content="/src/assets/og-preview.jpg"
-    />
+    <meta property="og:image" content="/src/assets/og-preview.jpg" />
     <meta property="og:url" content="https://fincaoaxaca.com" />
     <meta property="og:type" content="website" />
 
@@ -50,19 +46,17 @@
     />
     <meta
       name="twitter:description"
-      content="Sumérgete en Finca Oaxaca: descanso natural, experiencias auténticas y una conexión íntima con el entorno."
+      content="Cocina mexicana, experiencias holísticas y místicas, y naturaleza en Finca Oaxaca."
     />
-    <meta
-      name="twitter:image"
-      content="/src/assets/og-preview.jpg"
-    />
+    <meta name="twitter:image" content="/src/assets/og-preview.jpg" />
 
+    <!-- Schema.org -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
         "@type": "Hotel",
         "name": "Finca Oaxaca",
-        "description": "Alojamiento con habitaciones únicas: Caracol, Quetzal, Venado, Iguana, Tortuga y Puma.",
+        "description": "Alojamiento con alma en Gran Canaria, inspirado en México. Habitaciones únicas, cocina mexicana auténtica, experiencias holísticas, espirituales y místicas.",
         "image": [
           "/src/assets/caracol.jpg",
           "/src/assets/quetzal.jpg",
@@ -79,40 +73,41 @@
           "addressCountry": "ES"
         },
         "url": "https://fincaoaxaca.com",
+        "keywords": "México, Oaxaca, cocina mexicana, experiencias místicas, alojamiento holístico, turismo espiritual, naturaleza, retiro, bienestar",
         "hasPart": [
           {
             "@type": "HotelRoom",
             "name": "Habitación Caracol",
             "url": "https://fincaoaxaca.com/#caracol",
-            "description": "Habitación con materiales naturales y ambiente sereno.",
+            "description": "Inspiración mexicana, materiales naturales y ambiente sereno.",
             "image": "/src/assets/caracol.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Quetzal",
             "url": "https://fincaoaxaca.com/#quetzal",
-            "description": "Luz suave, arquitectura natural y recogimiento.",
+            "description": "Luz suave, arquitectura natural y recogimiento espiritual.",
             "image": "/src/assets/quetzal.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Venado",
             "url": "https://fincaoaxaca.com/#venado",
-            "description": "Decoración natural y colores cálidos.",
+            "description": "Decoración inspirada en México con colores cálidos.",
             "image": "/src/assets/venado-1.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Iguana",
             "url": "https://fincaoaxaca.com/#iguana",
-            "description": "Diseño cálido con fibras naturales.",
+            "description": "Diseño cálido con fibras naturales y esencia mexicana.",
             "image": "/src/assets/iguana1.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Tortuga",
             "url": "https://fincaoaxaca.com/#tortuga",
-            "description": "Refugio de calma con luz natural.",
+            "description": "Refugio de calma con luz natural y detalles mexicanos.",
             "image": "/src/assets/tortuga.jpg",
             "offers": {
               "@type": "Offer",
@@ -125,10 +120,16 @@
             "@type": "HotelRoom",
             "name": "Habitación Puma",
             "url": "https://fincaoaxaca.com/#puma",
-            "description": "Ambiente íntimo y confortable.",
+            "description": "Ambiente íntimo y confortable con inspiración mexicana.",
             "image": "/src/assets/puma1.jpg"
           }
-        ]
+        ],
+        "offers": {
+          "@type": "Offer",
+          "name": "Experiencias en Finca Oaxaca",
+          "description": "Clases de cocina mexicana, ceremonias y rituales místicos, experiencias holísticas y actividades de bienestar en contacto con la naturaleza.",
+          "priceCurrency": "EUR"
+        }
       }
     </script>
   </head>

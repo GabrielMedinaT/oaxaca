@@ -4,9 +4,9 @@ import { motion } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import Lightbox from "yet-another-react-lightbox";
 import "yet-another-react-lightbox/styles.css";
-//import EnredaderaSVG from "./EnredaderaSVG";
+import EnredaderaSVG from "./EnredaderaSVG";
 
-import "./Caracol.css";
+
 
 import iguana1 from "../assets/iguana1.jpg";
 import iguana2 from "../assets/iguana2.jpg";
