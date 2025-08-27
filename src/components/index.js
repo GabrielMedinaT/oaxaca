@@ -13,3 +13,4 @@ export { default as Puma } from "./Puma";
 export { default as ExperienciasCulinarias } from "./ExperienciasCulinarias";
 export { default as Blog } from "./Blog";
 export { default as Reviews } from "./Reviews";
+export { default as Julio } from "./Julio";

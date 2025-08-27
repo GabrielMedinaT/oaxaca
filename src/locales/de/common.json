@@ -10,7 +10,8 @@
     "experiences": "Erlebnisse",
     "proximamente": "Demnächst",
     "estamos": "Wir bereiten etwas Großartiges für dich vor. Klicke, um fortzufahren.",
-    "reviews": "Bewertungen"
+    "reviews": "Bewertungen",
+    "team": "Team"
   },
   "rooms": {
     "caracol": "Caracol",
@@ -228,5 +229,52 @@
       "duplicate": "Für dieses Inserat existiert bereits eine Bewertung mit dieser E-Mail.",
       "submitErr": "Senden fehlgeschlagen. Pro E-Mail ist nur eine Bewertung erlaubt."
     }
+  },
+  "julio":{
+  "title": "Julio César Valdez",
+  "subtitle": "Mexikanischer Chefkoch • Botschafter der Poblano-Küche",
+  "bio": {
+    "title": "Biografie",
+    "p1": "Geboren im Juli 1977, studierte er Bauingenieurwesen an der UDLAP. Seine Leidenschaft fürs Kochen begann in der Kindheit, inspiriert von seiner Großmutter. In Spanien startete er bei La Mordida; 2010 war er Mitgründer von La Central, 2014 eröffnete er MEX&Co und 2016 sein eigenes Konzept El Gallo Negro."
+  },
+  "career": {
+    "title": "Werdegang",
+    "items": {
+      "0": "<strong>2010 — La Central</strong> (Callao, Pozuelo, Majadahonda).",
+      "1": "<strong>2014 — MEX&Co</strong> (La Moraleja).",
+      "2": "<strong>2016 — El Gallo Negro</strong> (Majadahonda) &amp; <strong>2017 — Boadilla del Monte</strong>.",
+      "3": "Über 18 Restaurants in Europa und internationale Expansion."
+    }
+  },
+  "masterchef": {
+    "title": "MasterChef Spanien",
+    "desc": "Julio wurde zu MasterChef eingeladen, um den Kandidaten einen kurzen Kurs zur mexikanischen Küche zu geben.",
+    "videoTitle4": "MasterChef 4 — Kurs zur mexikanischen Küche mit Julio Valdez",
+    "linkMc3": "MasterChef 3 — Kurs zur mexikanischen Küche (RTVE)"
+  },
+  "awards": {
+    "title": "Auszeichnungen",
+    "items": {
+      "0": "Mexikanischer Senat, Mai 2024 — Auszeichnung für seine Arbeit als Botschafter der mexikanischen Kultur und Gastronomie in Europa.",
+      "1": "Er hat für Persönlichkeiten wie <strong>die spanischen Könige</strong>, Hugo Sánchez und Gloria Trevi gekocht."
+    },
+    "videoTitle": "Preisverleihung an Chefkoch Julio César Valdez"
+  },
+  "press": {
+    "title": "Presse",
+    "sources": {
+      "senado": "Senat Mexiko",
+      "cronica": "La Crónica",
+      "tribuna": "Tribuna Noticias",
+      "rtve": "RTVE (MasterChef 4)"
+    },
+    "cards": [
+      { "title": "Auszeichnung für Chefkoch Julio César Valdez", "desc": "Botschafter mexikanischer Kultur und Gastronomie weltweit." },
+      { "title": "Geehrt für die Poblano-Küche in Spanien", "desc": "Institutionelle Anerkennung für kulinarische Vermittlung." },
+      { "title": "Senat würdigt Chefkoch Julio César Valdez", "desc": "Zeremonie mit Museos Puebla und UDLAP." },
+      { "title": "Kurs zur mexikanischen Küche", "desc": "Gastauftritt bei MasterChef Spanien." }
+    ]
   }
+}
+
 }

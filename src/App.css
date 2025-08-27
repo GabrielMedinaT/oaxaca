@@ -117,7 +117,7 @@ body {
 
 /* Logo centrado en la navbar */
 .logo-center {
-  background-image: url("./assets/logoPluma3.png");
+  background-image: url("./assets/logoPluma.png");
   background-size: contain;
   background-repeat: no-repeat;
   background-position: center;

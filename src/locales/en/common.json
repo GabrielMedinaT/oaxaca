@@ -10,7 +10,8 @@
     "experiences": "Experiences",
     "proximamente": "Coming Soon",
     "estamos": "We are preparing something amazing for you. Click to continue.",
-    "reviews": "Reviews"
+    "reviews": "Reviews",
+    "team": "Team"
   },
   "rooms": {
     "caracol": "Caracol",
@@ -228,5 +229,52 @@
       "duplicate": "A review already exists for this listing with that email.",
       "submitErr": "Could not submit. Only one review per email is allowed."
     }
+  },
+"julio": {
+  "title": "Julio César Valdez",
+  "subtitle": "Mexican chef • Ambassador of Puebla’s cuisine",
+  "bio": {
+    "title": "Biography",
+    "p1": "Born in July 1977, he studied Civil Engineering at UDLAP. His passion for cooking began in childhood, inspired by his grandmother. In Spain he started at La Mordida; in 2010 he co-founded La Central, in 2014 opened MEX&Co and in 2016 launched his own concept, El Gallo Negro."
+  },
+  "career": {
+    "title": "Career",
+    "items": {
+      "0": "<strong>2010 — La Central</strong> (Callao, Pozuelo, Majadahonda).",
+      "1": "<strong>2014 — MEX&Co</strong> (La Moraleja).",
+      "2": "<strong>2016 — El Gallo Negro</strong> (Majadahonda) &amp; <strong>2017 — Boadilla del Monte</strong>.",
+      "3": "Over 18 restaurants in Europe and international expansion."
+    }
+  },
+  "masterchef": {
+    "title": "MasterChef Spain",
+    "desc": "Julio was invited to MasterChef to teach a short Mexican cuisine class to the contestants.",
+    "videoTitle4": "MasterChef 4 — Mexican cuisine class with Julio Valdez",
+    "linkMc3": "MasterChef 3 — Mexican cuisine class (RTVE)"
+  },
+  "awards": {
+    "title": "Recognitions",
+    "items": {
+      "0": "Mexican Senate, May 2024 — Honored for his work as an ambassador of Mexican culture and gastronomy in Europe.",
+      "1": "He has cooked for public figures such as <strong>the Kings of Spain</strong>, Hugo Sánchez and Gloria Trevi."
+    },
+    "videoTitle": "Award ceremony for chef Julio César Valdez"
+  },
+  "press": {
+    "title": "Press",
+    "sources": {
+      "senado": "Mexican Senate",
+      "cronica": "La Crónica",
+      "tribuna": "Tribuna Noticias",
+      "rtve": "RTVE (MasterChef 4)"
+    },
+    "cards": [
+      { "title": "Recognition of chef Julio César Valdez", "desc": "Ambassador of Mexican culture and gastronomy worldwide." },
+      { "title": "Chef distinguished for bringing Puebla’s cuisine to Spain", "desc": "Institutional recognition for culinary outreach." },
+      { "title": "Senate recognizes chef Julio César Valdez", "desc": "Ceremony with Museos Puebla and UDLAP." },
+      { "title": "Mexican cuisine class", "desc": "Guest appearance on MasterChef Spain." }
+    ]
   }
+
 }
+ }

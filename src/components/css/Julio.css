@@ -1,0 +1,28 @@
+*,
+*:after,
+*:before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  scroll-behavior: smooth;
+  list-style: none;
+}
+  
+
+/* src/components/Julio.css */
+.julio-container {
+  display: flex;
+  justify-content: center; 
+  align-items: center;
+  padding: 3rem 1.5rem; 
+  background: #c8a76f;
+  margin-top: 5vh;
+}
+.julio-content {
+  max-width: 760px; text-align: center; background: #e3e3b674;
+  border-radius: 20px; padding: 2rem; box-shadow: 0 8px 20px rgba(0,0,0,.08);
+}
+.julio-title { font-size: 2rem; color: #4a3c2a; margin-bottom: .25rem; }
+.julio-subtitle { font-size: 1.1rem; color: #a05a2c; margin-bottom: 1rem; }
+.julio-description { color: #444; line-height: 1.6; }

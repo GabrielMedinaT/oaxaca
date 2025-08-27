@@ -16,8 +16,8 @@ const ICS_FEEDS = [
   },
   {
     name: "Casa Caracol",
-    url: "https://calendars.tokeet.com/calendar/rental/1739314518.5419/0194f73a-4b1b-728e-9688-e57c9e664d1c-tk2",
-    color: "#a87f54",
+    url: "https://calendars.tokeet.com/calendar/rental/1739314518.5419/0194f73a-41b1-728e-9668-e57c9e6646d1-tk2",
+    color: "#1295edff",
   },
   {
     name: "Casa Puma",

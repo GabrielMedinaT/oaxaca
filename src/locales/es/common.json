@@ -10,7 +10,8 @@
     "experiences": "Experiencias",
     "proximamente": "Próximamente",
     "estamos": "Estamos preparando algo increíble para ti. Haz clic para continuar.",
-    "reviews": "Reseñas"
+    "reviews": "Reseñas",
+    "team": "Equipo"
   },
   "rooms": {
     "caracol": "Caracol",
@@ -229,7 +230,66 @@
       "duplicate": "Ya existe una reseña para este anuncio con ese email.",
       "submitErr": "No se pudo enviar. Solo se permite una reseña por correo."
     }
+  },
+  "julio":{
+  "title": "Julio César Valdez",
+  "subtitle": "Chef mexicano • Embajador de la cocina poblana",
+  "bio": {
+    "title": "Biografía",
+    "p1": "Nacido en julio de 1977, estudió Ingeniería Civil en la UDLAP. Su pasión por la cocina comenzó en la infancia, inspirado por su abuela. En España inició su camino gastronómico trabajando en La Mordida; en 2010 cofundó La Central, en 2014 abrió MEX&Co y en 2016 lanzó su propio concepto, El Gallo Negro."
+  },
+  "career": {
+    "title": "Trayectoria",
+    "items": {
+      "0": "<strong>2010 — La Central</strong> (Callao, Pozuelo, Majadahonda).",
+      "1": "<strong>2014 — MEX&Co</strong> (La Moraleja).",
+      "2": "<strong>2016 — El Gallo Negro</strong> (Majadahonda) &amp; <strong>2017 — Boadilla del Monte</strong>.",
+      "3": "Más de 18 restaurantes en Europa y expansión internacional."
+    }
+  },
+  "masterchef": {
+    "title": "MasterChef España",
+    "desc": "Julio fue invitado a MasterChef para dar una clase de cocina mexicana a los aspirantes.",
+    "videoTitle4": "MasterChef 4 — Clase de cocina mexicana con Julio Valdez",
+    "linkMc3": "MasterChef 3 — Clase de cocina mexicana (RTVE)"
+  },
+  "awards": {
+    "title": "Reconocimientos",
+    "items": {
+      "0": "Senado de la República (México), mayo 2024 — Reconocimiento por su labor como embajador de la cultura y la gastronomía mexicana en Europa.",
+      "1": "Ha servido su cocina a personalidades como <strong>los Reyes de España</strong>, Hugo Sánchez y Gloria Trevi."
+    },
+    "videoTitle": "Entrega de reconocimiento al chef Julio César Valdez"
+  },
+  "press": {
+    "title": "Prensa",
+    "sources": {
+      "senado": "Senado México",
+      "cronica": "La Crónica",
+      "tribuna": "Tribuna Noticias",
+      "rtve": "RTVE (MasterChef 4)"
+    },
+    "cards": [
+      {
+        "title": "Reconocimiento al chef Julio César Valdez",
+        "desc": "Embajador de la cultura y gastronomía mexicana en el mundo."
+      },
+      {
+        "title": "Distinguen al chef por llevar la cocina poblana a España",
+        "desc": "Reconocimiento institucional por su difusión culinaria."
+      },
+      {
+        "title": "Senado reconoce al chef Julio César Valdez",
+        "desc": "Acto de entrega con Museos Puebla y UDLAP."
+      },
+      {
+        "title": "Clase de cocina mexicana",
+        "desc": "Participación como invitado en MasterChef España."
+      }
+    ]
   }
+}
+
 }
 
 

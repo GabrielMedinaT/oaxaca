@@ -1,9 +1,12 @@
+// src/App.jsx
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTranslation } from "react-i18next";
 import { useLang } from "./CambioIdioma";
+import { Routes, Route, useNavigate, useLocation, Navigate } from "react-router-dom";
 
 import "./App.css";
+import LoginTracker from "./components/LoginTracker";
 import {
   Calendar,
   Landing,
@@ -17,8 +20,8 @@ import {
   ExperienciasCulinarias,
   Blog,
   Reviews,
+  Julio,
 } from "./components";
-import { Routes, Route, useNavigate, useLocation } from "react-router-dom";
 
 const SLIDE_FROM = "left";
 
@@ -27,25 +30,25 @@ function App() {
   const { setLang } = useLang();
   const navigate = useNavigate();
   const location = useLocation();
+
   const [menuOpen, setMenuOpen] = useState(false);
   const [showClose, setShowClose] = useState(false);
   const [ripple, setRipple] = useState({ x: 0, y: 0, show: false });
   const [showLogin, setShowLogin] = useState(false);
-  const [currentView, setCurrentView] = useState("landing");
   const [usuario, setUsuario] = useState(null);
-  const [submenuOpen, setSubmenuOpen] = useState(false);
+
+  const [submenuOpen, setSubmenuOpen] = useState(false); // Estancias
+  const [submenuEquipoOpen, setSubmenuEquipoOpen] = useState(false); // Equipo
   const [showComingSoon, setShowComingSoon] = useState(true);
 
   useEffect(() => {
     let timer;
-    if (menuOpen) {
-      timer = setTimeout(() => setShowClose(true), 2300);
-    } else {
-      setShowClose(false);
-    }
+    if (menuOpen) timer = setTimeout(() => setShowClose(true), 2300);
+    else setShowClose(false);
     return () => clearTimeout(timer);
   }, [menuOpen]);
 
+  // Mantener control de login para /calendario
   useEffect(() => {
     if (location.pathname === "/calendario" && !usuario && !showLogin) {
       setShowLogin(true);
@@ -61,10 +64,11 @@ function App() {
     setMenuOpen(true);
   };
 
-  const handleMenuClick = (view) => {
+  const navigateTo = (to) => {
     setMenuOpen(false);
     setSubmenuOpen(false);
-    setCurrentView(view);
+    setSubmenuEquipoOpen(false);
+    navigate(to);
   };
 
   const handleLoginSuccess = (usuario) => {
@@ -75,58 +79,43 @@ function App() {
 
   const containerVariants = {
     hidden: { opacity: 1 },
-    visible: {
-      opacity: 1,
-      transition: { staggerChildren: 0.12, when: "beforeChildren" },
-    },
+    visible: { opacity: 1, transition: { staggerChildren: 0.12, when: "beforeChildren" } },
     exit: { transition: { staggerChildren: 0.08, staggerDirection: -1 } },
   };
 
-  const hiddenOffset =
-    SLIDE_FROM === "left" ? { x: -40, y: 0 } : { x: 0, y: 24 };
+  const hiddenOffset = SLIDE_FROM === "left" ? { x: -40, y: 0 } : { x: 0, y: 24 };
   const exitOffset = SLIDE_FROM === "left" ? { x: -30, y: 0 } : { x: 0, y: 18 };
 
   const itemVariants = {
     hidden: { opacity: 0, ...hiddenOffset },
-    visible: {
-      opacity: 1,
-      x: 0,
-      y: 0,
-      transition: { type: "spring", stiffness: 180, damping: 18 },
-    },
+    visible: { opacity: 1, x: 0, y: 0, transition: { type: "spring", stiffness: 180, damping: 18 } },
     exit: { opacity: 0, ...exitOffset, transition: { duration: 0.25 } },
   };
 
+  // Submenús como rutas
+  const submenuItems = [
+    { label: t("rooms.caracol"), to: "/estancias/caracol" },
+    { label: t("rooms.quetzal"), to: "/estancias/quetzal" },
+    { label: t("rooms.venado"), to: "/estancias/venado" },
+    { label: t("rooms.iguana"), to: "/estancias/iguana" },
+    { label: t("rooms.tortuga"), to: "/estancias/tortuga" },
+    { label: t("rooms.puma"), to: "/estancias/puma" },
+  ];
+
+  const submenuEquipo = [
+    { label: "Julio", to: "/equipo/julio" },
+  ];
 
   const menuItems = [
-    { label: t("nav.home"), action: () => handleMenuClick("landing") },
-    {
-      label: t("nav.stays"),
-      isSubmenu: true,
-      action: () => setSubmenuOpen((v) => !v),
-    },
-    {
-      label: t("nav.experiences"),
-      action: () => handleMenuClick("experienciasCulinarias"),
-    },
-    {
-      label: "Blog",
-      action: () => handleMenuClick("blog"),
-    },
-    {
-      label: t("nav.reviews"),
-      action: () => handleMenuClick("Reviews"),
-    },
-   
+    { label: t("nav.home"), to: "/" },
+    { label: t("nav.stays"), isSubmenu: true, key: "stays" },
+    { label: t("nav.team"), isSubmenu: true, key: "team" },
+    { label: t("nav.experiences"), to: "/experiencias" },
+    { label: "Blog", to: "/blog" },
+    { label: t("nav.reviews"), to: "/reviews" },
     {
       label: (
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          viewBox="0 0 512 512"
-          width="48"
-          height="48"
-          aria-label="Instagram"
-        >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="48" height="48" aria-label="Instagram">
           <defs>
             <linearGradient id="ig" x1="0" y1="1" x2="1" y2="0">
               <stop offset="0%" stopColor="#f58529" />
@@ -145,28 +134,16 @@ function App() {
     },
   ];
 
-  const submenuItems = [
-    { label: t("rooms.caracol"), view: "caracol" },
-    { label: t("rooms.quetzal"), view: "quetzal" },
-    { label: t("rooms.venado"), view: "venado" },
-    { label: t("rooms.iguana"), view: "iguana" },
-    { label: t("rooms.tortuga"), view: "tortuga" },
-    { label: t("rooms.puma"), view: "puma" },
-  ];
-
   const transitionVariants = {
     initial: { opacity: 0, x: 50 },
     animate: { opacity: 1, x: 0 },
-    exit: { opacity: 0, x: -50 },
+    exit: { opacity: 0, x: -50 }
   };
 
   return (
     <div className="coming-soon-container">
-      {/* HEADER STICKY: NavBar + Marquee */}
-      <header
-        className="HeaderSticky"
-        style={{ position: "sticky", top: 0, zIndex: 1000 }}
-      >
+      {/* HEADER STICKY */}
+      <header className="HeaderSticky" style={{ position: "sticky", top: 0, zIndex: 1000 }}>
         {/* NAVBAR */}
         <div className="NavBar">
           <div className="lang-switch">
@@ -176,25 +153,16 @@ function App() {
                 <rect y="4" width="24" height="8" fill="#FFC400" />
               </svg>
             </button>
-
             <button onClick={() => setLang("en")} aria-label="English">
               <svg width="24" height="16" viewBox="0 0 60 30">
-                <clipPath id="t">
-                  <path d="M30,15 h30 v15 h-30 z v15 h-30 v-15 z v-15 h30 z" />
-                </clipPath>
+                <clipPath id="t"><path d="M30,15 h30 v15 h-30 z v15 h-30 v-15 z v-15 h30 z" /></clipPath>
                 <path d="M0,0 v30 h60 v-30 z" fill="#012169" />
                 <path d="M0,0 L60,30 M60,0 L0,30" stroke="#fff" strokeWidth="6" />
-                <path
-                  d="M0,0 L60,30 M60,0 L0,30"
-                  clipPath="url(#t)"
-                  stroke="#C8102E"
-                  strokeWidth="4"
-                />
+                <path d="M0,0 L60,30 M60,0 L0,30" clipPath="url(#t)" stroke="#C8102E" strokeWidth="4" />
                 <path d="M30,0 v30 M0,15 h60" stroke="#fff" strokeWidth="10" />
                 <path d="M30,0 v30 M0,15 h60" stroke="#C8102E" strokeWidth="6" />
               </svg>
             </button>
-
             <button onClick={() => setLang("de")} aria-label="Deutsch">
               <svg width="24" height="16" viewBox="0 0 5 3">
                 <rect width="5" height="1" y="0" fill="#000" />
@@ -209,20 +177,14 @@ function App() {
             {showComingSoon && (
               <motion.div
                 className="coming-soon-modal"
-                initial={{ opacity: 0 }}
-                animate={{ opacity: 1 }}
-                exit={{ opacity: 0 }}
+                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
                 transition={{ duration: 0.5 }}
                 onClick={() => setShowComingSoon(false)}
               >
-                <motion.h1
-                  initial={{ scale: 0.8 }}
-                  animate={{ scale: 1 }}
-                  transition={{ duration: 0.5 }}
-                >
+                <motion.h1 initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
                   {t("nav.proximamente")}
                 </motion.h1>
-                <p> {t("nav.estamos")} </p>
+                <p>{t("nav.estamos")}</p>
               </motion.div>
             )}
           </AnimatePresence>
@@ -232,20 +194,11 @@ function App() {
               key="hamburger"
               className="hamburger"
               onClick={handleHamburgerClick}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
             >
-              {ripple.show && (
-                <span
-                  className="ripple"
-                  style={{ top: ripple.y, left: ripple.x }}
-                />
-              )}
-              <span></span>
-              <span></span>
-              <span></span>
+              {ripple.show && <span className="ripple" style={{ top: ripple.y, left: ripple.x }} />}
+              <span></span><span></span><span></span>
             </motion.div>
           )}
 
@@ -254,12 +207,9 @@ function App() {
               key="close"
               className="close-btn"
               onClick={() => setMenuOpen(false)}
-              initial={{ opacity: 0 }}
-              animate={{ opacity: 1 }}
-              exit={{ opacity: 0 }}
+              initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
               transition={{ duration: 0.4 }}
-              aria-label={t("actions.close")}
-              role="button"
+              aria-label={t("actions.close")} role="button"
             >
               ✕
             </motion.div>
@@ -268,70 +218,80 @@ function App() {
           <div className="logo-center"></div>
         </div>
 
-        {/* MARQUESINA (debajo del NavBar) */}
+        {/* MARQUESINA oculta solo en /calendario */}
         {location.pathname !== "/calendario" && (
-          <div
-            className="marquee"
-            role="status"
-            aria-live="polite"
-            style={{ marginTop: 0 }} // override por si en App.css sigue el 8vh
-            >
+          <div className="marquee" role="status" aria-live="polite" style={{ marginTop: 0 }}>
             <div className="marquee__inner">
               <span>{t("marquee.reservas")}</span>
               <span>{t("marquee.grande")}</span>
             </div>
-            </div>
-          )}
-          </header>
+          </div>
+        )}
+      </header>
 
-          {/* MENÚ LATERAL */}
+      {/* MENÚ LATERAL */}
       <AnimatePresence>
         {menuOpen && (
           <motion.aside
             className="side-menu"
-            initial={{ x: "-100%" }}
-            animate={{ x: 0 }}
-            exit={{ x: "-100%" }}
+            initial={{ x: "-100%" }} animate={{ x: 0 }} exit={{ x: "-100%" }}
             transition={{ duration: 0.5, ease: "easeInOut" }}
           >
-            <motion.ul
-              variants={containerVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
+            <motion.ul variants={containerVariants} initial="hidden" animate="visible" exit="exit">
               {menuItems.map((item, idx) => (
                 <motion.li key={idx} variants={itemVariants}>
                   {item.href ? (
                     <a
-                      href={item.href}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      onClick={() => setMenuOpen(false)}
-                      className="menu-link"
+                      href={item.href} target="_blank" rel="noopener noreferrer"
+                      onClick={() => setMenuOpen(false)} className="menu-link"
                     >
                       {item.label}
                     </a>
+                  ) : item.isSubmenu ? (
+                    <button
+                      onClick={() => {
+                        if (item.key === "stays") setSubmenuOpen((v) => !v);
+                        if (item.key === "team") setSubmenuEquipoOpen((v) => !v);
+                      }}
+                    >
+                      {item.label}
+                    </button>
                   ) : (
-                    <button onClick={item.action}>{item.label}</button>
+                    <button onClick={() => navigateTo(item.to)}>{item.label}</button>
                   )}
 
+                  {/* Submenú Estancias */}
                   <AnimatePresence>
-                    {item.isSubmenu && submenuOpen && (
+                    {item.isSubmenu && item.key === "stays" && submenuOpen && (
                       <motion.ul
                         className="submenu"
                         variants={containerVariants}
-                        initial="hidden"
-                        animate="visible"
-                        exit="exit"
+                        initial="hidden" animate="visible" exit="exit"
                         style={{ marginTop: "0.5rem" }}
                       >
                         {submenuItems.map((sub) => (
-                          <motion.li key={sub.view} variants={itemVariants}>
-                            <button
-                              className="botonE"
-                              onClick={() => handleMenuClick(sub.view)}
-                            >
+                          <motion.li key={sub.to} variants={itemVariants}>
+                            <button className="botonE" onClick={() => navigateTo(sub.to)}>
+                              {sub.label}
+                            </button>
+                          </motion.li>
+                        ))}
+                      </motion.ul>
+                    )}
+                  </AnimatePresence>
+
+                  {/* Submenú Equipo */}
+                  <AnimatePresence>
+                    {item.isSubmenu && item.key === "team" && submenuEquipoOpen && (
+                      <motion.ul
+                        className="submenu"
+                        variants={containerVariants}
+                        initial="hidden" animate="visible" exit="exit"
+                        style={{ marginTop: "0.5rem" }}
+                      >
+                        {submenuEquipo.map((sub) => (
+                          <motion.li key={sub.to} variants={itemVariants}>
+                            <button className="botonE" onClick={() => navigateTo(sub.to)}>
                               {sub.label}
                             </button>
                           </motion.li>
@@ -346,7 +306,7 @@ function App() {
         )}
       </AnimatePresence>
 
-      {/* MODAL LOGIN */}
+      {/* MODAL LOGIN (para /calendario) */}
       {showLogin && (
         <LoginModal
           onClose={() => {
@@ -357,110 +317,49 @@ function App() {
         />
       )}
 
-      {/* CONTENIDO PRINCIPAL */}
-      <div className="Render" style={{ position: "relative", width: "100vw" }}>
-        {location.pathname === "/calendario" ? (
+      {/* CONTENIDO PRINCIPAL POR RUTAS */}
+      <AnimatePresence mode="wait">
+        <motion.div
+          key={location.pathname}
+          variants={transitionVariants}
+          initial="initial"
+          animate="animate"
+          exit="exit"
+          transition={{ duration: 0.6 }}
+          style={{ position: "relative", width: "100vw" }}
+        >
           <Routes>
+            {/* Landing */}
+            <Route path="/" element={<Landing />} />
+
+            {/* Estancias */}
+            <Route path="/estancias/caracol" element={<Caracol />} />
+            <Route path="/estancias/quetzal" element={<Quetzal />} />
+            <Route path="/estancias/venado" element={<Venado />} />
+            <Route path="/estancias/iguana" element={<Iguana />} />
+            <Route path="/estancias/tortuga" element={<Tortuga />} />
+            <Route path="/estancias/puma" element={<Puma />} />
+
+            {/* Experiencias, Blog, Reviews */}
+            <Route path="/experiencias" element={<ExperienciasCulinarias />} />
+            <Route path="/blog" element={<Blog />} />
+            <Route path="/reviews" element={<Reviews />} />
+
+            {/* Equipo */}
+            <Route path="/equipo/julio" element={<Julio />} />
+
+            {/* Ocultas: Historial (sin login) y Calendario (con login) */}
+            <Route path="/historial" element={<LoginTracker />} />
             <Route
               path="/calendario"
-              element={
-                usuario ? (
-                  <motion.div
-                    key="calendar"
-                    variants={transitionVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={{ duration: 0.6 }}
-                    style={{ position: "absolute", width: "100vw" }}
-                  >
-                    <Calendar usuario={usuario} />
-                  </motion.div>
-                ) : null
-              }
+              element={usuario ? <Calendar usuario={usuario} /> : null}
             />
+
+            {/* Fallback */}
+            <Route path="*" element={<Navigate to="/" replace />} />
           </Routes>
-        ) : (
-          <AnimatePresence mode="wait">
-            {currentView === "landing" && (
-              <motion.div
-                key="landing"
-                variants={transitionVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{ duration: 0.6 }}
-                style={{ position: "absolute", width: "100vw" }}
-              >
-                <Landing />
-              </motion.div>
-            )}
-
-            {["caracol", "quetzal", "venado", "iguana", "tortuga", "puma"].map(
-              (view) =>
-                currentView === view && (
-                  <motion.div
-                    key={view}
-                    variants={transitionVariants}
-                    initial="initial"
-                    animate="animate"
-                    exit="exit"
-                    transition={{ duration: 0.6 }}
-                    style={{ position: "absolute", width: "100vw" }}
-                  >
-                    {view === "caracol" && <Caracol />}
-                    {view === "quetzal" && <Quetzal />}
-                    {view === "venado" && <Venado />}
-                    {view === "iguana" && <Iguana />}
-                    {view === "tortuga" && <Tortuga />}
-                    {view === "puma" && <Puma />}
-                  </motion.div>
-                )
-            )}
-
-            {currentView === "experienciasCulinarias" && (
-              <motion.div
-                key="experienciasCulinarias"
-                variants={transitionVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{ duration: 0.6 }}
-                style={{ position: "absolute", width: "100vw" }}
-              >
-                <ExperienciasCulinarias />
-              </motion.div>
-            )}
-
-            {currentView === "blog" && (
-              <motion.div
-                key="blog"
-                variants={transitionVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{ duration: 0.6 }}
-                style={{ position: "absolute", width: "100vw" }}
-              >
-                <Blog />
-              </motion.div>
-            )}
-            {currentView === "Reviews" && (
-              <motion.div
-                key="reviews"
-                variants={transitionVariants}
-                initial="initial"
-                animate="animate"
-                exit="exit"
-                transition={{ duration: 0.6 }}
-                style={{ position: "absolute", width: "100vw" }}
-              >
-                <Reviews />
-              </motion.div>
-            )}
-          </AnimatePresence>
-        )}
-      </div>
+        </motion.div>
+      </AnimatePresence>
 
       {/* FOOTER */}
       <footer className="footer">
