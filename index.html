@@ -26,31 +26,23 @@
     <meta name="theme-color" content="#4E3F2D" />
 
     <!-- Open Graph -->
-    <meta
-      property="og:title"
-      content="Finca Oaxaca – Alojamiento con alma y experiencias únicas"
-    />
-    <meta
-      property="og:description"
-      content="Vive la esencia de México: cocina mexicana, experiencias místicas y descanso holístico en plena naturaleza."
-    />
+    <meta property="og:title" content="Finca Oaxaca – Alojamiento con alma y experiencias únicas" />
+    <meta property="og:description" content="Vive la esencia de México: cocina mexicana, experiencias místicas y descanso holístico en plena naturaleza." />
     <meta property="og:image" content="/src/assets/og-preview.jpg" />
     <meta property="og:url" content="https://fincaoaxaca.com" />
     <meta property="og:type" content="website" />
 
     <!-- Twitter -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta
-      name="twitter:title"
-      content="Finca Oaxaca – Alojamiento con alma y experiencias únicas"
-    />
-    <meta
-      name="twitter:description"
-      content="Cocina mexicana, experiencias holísticas y místicas, y naturaleza en Finca Oaxaca."
-    />
+    <meta name="twitter:title" content="Finca Oaxaca – Alojamiento con alma y experiencias únicas" />
+    <meta name="twitter:description" content="Cocina mexicana, experiencias holísticas y místicas, y naturaleza en Finca Oaxaca." />
     <meta name="twitter:image" content="/src/assets/og-preview.jpg" />
 
-    <!-- Schema.org -->
+    <!-- (opcional) Mejora performance de fuentes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+    <!-- Schema.org (JSON-LD) ACTUALIZADO a rutas /estancias/... -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -78,35 +70,35 @@
           {
             "@type": "HotelRoom",
             "name": "Habitación Caracol",
-            "url": "https://fincaoaxaca.com/#caracol",
+            "url": "https://fincaoaxaca.com/estancias/caracol",
             "description": "Inspiración mexicana, materiales naturales y ambiente sereno.",
             "image": "/src/assets/caracol.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Quetzal",
-            "url": "https://fincaoaxaca.com/#quetzal",
+            "url": "https://fincaoaxaca.com/estancias/quetzal",
             "description": "Luz suave, arquitectura natural y recogimiento espiritual.",
             "image": "/src/assets/quetzal.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Venado",
-            "url": "https://fincaoaxaca.com/#venado",
+            "url": "https://fincaoaxaca.com/estancias/venado",
             "description": "Decoración inspirada en México con colores cálidos.",
             "image": "/src/assets/venado-1.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Iguana",
-            "url": "https://fincaoaxaca.com/#iguana",
+            "url": "https://fincaoaxaca.com/estancias/iguana",
             "description": "Diseño cálido con fibras naturales y esencia mexicana.",
             "image": "/src/assets/iguana1.jpg"
           },
           {
             "@type": "HotelRoom",
             "name": "Habitación Tortuga",
-            "url": "https://fincaoaxaca.com/#tortuga",
+            "url": "https://fincaoaxaca.com/estancias/tortuga",
             "description": "Refugio de calma con luz natural y detalles mexicanos.",
             "image": "/src/assets/tortuga.jpg",
             "offers": {
@@ -119,7 +111,7 @@
           {
             "@type": "HotelRoom",
             "name": "Habitación Puma",
-            "url": "https://fincaoaxaca.com/#puma",
+            "url": "https://fincaoaxaca.com/estancias/puma",
             "description": "Ambiente íntimo y confortable con inspiración mexicana.",
             "image": "/src/assets/puma1.jpg"
           }
@@ -131,6 +123,26 @@
           "priceCurrency": "EUR"
         }
       }
+    </script>
+
+    <!-- GA4 con Consent Mode v2 y SIN page_view automático -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXX"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){ dataLayer.push(arguments); }
+
+      // Consent por defecto (UE)
+      gtag('consent', 'default', {
+        ad_storage: 'denied',
+        analytics_storage: 'denied',
+        ad_user_data: 'denied',
+        ad_personalization: 'denied',
+        functionality_storage: 'granted',
+        security_storage: 'granted'
+      });
+
+      gtag('js', new Date());
+      gtag('config', 'G-XXXXXXX', { send_page_view: false });
     </script>
   </head>
   <body>

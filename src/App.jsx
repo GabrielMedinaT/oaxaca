@@ -21,12 +21,15 @@ import {
   Blog,
   Reviews,
   Julio,
+  CookiesBanner
 } from "./components";
+import useGA4PageViews from "./analytics/useGA4PageViews";
 
 const SLIDE_FROM = "left";
 
 function App() {
   const { t } = useTranslation();
+  useGA4PageViews();
   const { setLang } = useLang();
   const navigate = useNavigate();
   const location = useLocation();
@@ -174,19 +177,28 @@ function App() {
 
           {/* MODAL "PRÓXIMAMENTE" */}
           <AnimatePresence>
-            {showComingSoon && (
-              <motion.div
-                className="coming-soon-modal"
-                initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}
-                transition={{ duration: 0.5 }}
-                onClick={() => setShowComingSoon(false)}
-              >
-                <motion.h1 initial={{ scale: 0.8 }} animate={{ scale: 1 }} transition={{ duration: 0.5 }}>
-                  {t("nav.proximamente")}
-                </motion.h1>
-                <p>{t("nav.estamos")}</p>
-              </motion.div>
-            )}
+{showComingSoon && (
+  <motion.div
+    className="coming-soon-modal"
+    initial={{ opacity: 0 }}
+    animate={{ opacity: 1 }}
+    exit={{ opacity: 0 }}
+    transition={{ duration: 0.5 }}
+  >
+    <h1>{t("nav.proximamente")}</h1>
+    <div style={{ width: "60%", height: "70vh" }}>
+      <iframe
+        src="https://retiroserenity.com/upcoming-yoga-retreat-at-oaxaca-a-journey-to-the-self/"
+        title="Upcoming Yoga Retreat at Oaxaca"
+        style={{ width: "100%", height: "100%", border: "none" }}
+      />
+    </div>
+    <button onClick={() => setShowComingSoon(false)} style={{ marginTop: "1rem" }}>
+      {t("actions.close")}
+    </button>
+  </motion.div>
+)}
+
           </AnimatePresence>
 
           {!menuOpen && (
@@ -360,6 +372,9 @@ function App() {
           </Routes>
         </motion.div>
       </AnimatePresence>
+      {/* 🔹 BANNER COOKIES: aquí, antes del footer */}
+      <CookiesBanner />
+
 
       {/* FOOTER */}
       <footer className="footer">
